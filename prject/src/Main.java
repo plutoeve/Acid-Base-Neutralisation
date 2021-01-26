@@ -1,6 +1,16 @@
-public class Main {
+import javafx.application.Application;
+import javafx.stage.Stage;
 
-    public static void main(String[] arg){
+public class Main extends Application {
+
+    public static void main(String[] args){
         System.out.println("hello but no");
+        launch(args);
+
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+
     }
 }
