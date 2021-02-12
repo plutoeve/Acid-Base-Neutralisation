@@ -5,10 +5,11 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Main extends Application{
-    Stage firststage;
-    @Override
+
+    public static Stage firstStage;
+
     public void start(Stage stage) throws Exception {
-        firststage = stage;
+        firstStage = stage;
         stage.setTitle("Neutralisation simulator");
        Pane pane = new GridPane();
        Scene scene = new Scene(pane, 300, 300);
