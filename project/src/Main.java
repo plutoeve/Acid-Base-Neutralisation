@@ -8,6 +8,7 @@ public class Main extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
+        stage.setTitle("Neutralisation simulator");
        Pane pane = new GridPane();
        Scene scene = new Scene(pane, 300, 300);
        stage.setScene(scene);
