@@ -1,6 +1,7 @@
 package View;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -8,6 +9,10 @@ public class ControlPanelView extends GridPane {
 
     ComboBox AcidBox = new ComboBox();
     ComboBox BaseBox = new ComboBox();
+    TextField concentrationAcid = new TextField();
+    TextField concentrationBase = new TextField();
+    TextField volumeAcid = new TextField();
+    TextField volumeBase = new TextField();
 
     public ControlPanelView(){
         super();
@@ -23,7 +28,7 @@ public class ControlPanelView extends GridPane {
                 "hydrochloric acid (HCl)",
                 "hydrobromic acid (HBr)",
                 "hydroiodic acid (HI)",
-                "sulfuric acid (H2SO4", //only the first proton is considered strongly acidic)
+                "sulfuric acid (H2SO4)", //only the first proton is considered strongly acidic)
                 "nitric acid (HNO3)",
                 "perchloric acid (HClO4)"
         );
@@ -48,5 +53,16 @@ public class ControlPanelView extends GridPane {
         add(AcidBox,0,1);
         add(BaseBox,1,1);
 
+        concentrationAcid.setPromptText("Please input acid concentration");
+        concentrationBase.setPromptText("Please input base concentration");
+        volumeAcid.setPromptText("Please input acid volume");
+        volumeBase.setPromptText("Please input base volume");
+        add(concentrationAcid, 0,2);
+        add(concentrationBase,1,2);
+        add(volumeAcid, 0, 3);
+        add(volumeBase, 1,3);
+
+        this.setHgap(30);
+        this.setVgap(30);
     }
 }
