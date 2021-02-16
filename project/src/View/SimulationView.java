@@ -4,11 +4,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
-public class simulationView {
+public class SimulationView {
     Scene simulationScene;
     GridPane simulationPane = new GridPane();
 
-    public simulationView(){
+    public SimulationView(){
 
         simulationPane.getChildren().add(new ControlPanelView());
         simulationScene = new Scene(simulationPane,700 ,700 );

@@ -1,13 +1,12 @@
 
 package View;
+import Acid_Base_Neutralisation.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 
 import javafx.scene.control.*;
 
@@ -15,7 +14,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class mainView {
+public class MainView {
 
 
         AnchorPane pane = new AnchorPane();
@@ -24,7 +23,7 @@ public class mainView {
         Button resetButton = new Button("reset");
         Label label = new Label("Simulation: Acid-base neutralization");
 
-        public mainView() {
+        public MainView() {
             pane.setPrefSize(300, 300);
             Main.firstStage.setScene(scene);
 
@@ -56,7 +55,7 @@ public class mainView {
         EventHandler start = new EventHandler() {
             @Override
             public void handle(Event event) {
-                simulationView sv = new simulationView();
+                SimulationView sv = new SimulationView();
                 Main.firstStage.setScene(sv.simulationScene);
             }
         };
