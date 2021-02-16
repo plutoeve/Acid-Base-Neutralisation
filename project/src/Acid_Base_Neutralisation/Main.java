@@ -16,5 +16,7 @@ public class Main extends Application{
     }
     public static void main(String[] arg){
         launch(arg);
+
+        System.out.println("dsfnsdjkfngsdfibueghju");
     }
 }
