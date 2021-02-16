@@ -1,3 +1,5 @@
+package View;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -6,13 +8,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
-    @Override
+    public static Stage firstStage;
+
     public void start(Stage stage) throws Exception {
+        firstStage = stage;
         stage.setTitle("Neutralisation simulator");
-       Pane pane = new GridPane();
-       Scene scene = new Scene(pane, 300, 300);
-       stage.setScene(scene);
-       stage.show();
+        mainView mv = new mainView();
+        stage.show();
     }
     public static void main(String[] arg){
         launch(arg);
