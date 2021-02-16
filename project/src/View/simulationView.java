@@ -1,15 +1,17 @@
 package View;
 
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 
 public class simulationView {
-    Scene simulationScene = new Scene(new GridPane(), 500, 500);
+    Scene simulationScene;
     GridPane simulationPane = new GridPane();
 
     public simulationView(){
 
         simulationPane.getChildren().add(new ControlPanelView());
+        simulationScene = new Scene(simulationPane,700 ,700 );
     }
 
 
