@@ -19,7 +19,7 @@ public class mainView {
 
 
         AnchorPane pane = new AnchorPane();
-        Scene scene = new Scene(pane, 400,400);
+        Scene scene = new Scene(pane, 1000,800);
         Button startButton = new Button("start");
         Button resetButton = new Button("reset");
         Label label = new Label("Simulation: Acid-base neutralization");
