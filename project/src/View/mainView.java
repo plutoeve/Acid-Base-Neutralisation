@@ -56,7 +56,8 @@ public class mainView {
         EventHandler start = new EventHandler() {
             @Override
             public void handle(Event event) {
-                Main.firstStage.setScene(simulationView.simulationScene);
+                simulationView sv = new simulationView();
+                Main.firstStage.setScene(sv.simulationScene);
             }
         };
     }
