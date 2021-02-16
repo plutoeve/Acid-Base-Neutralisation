@@ -36,6 +36,7 @@ public class MainView {
             pane.getChildren().add(startButton);
 
             startButton.setOnAction(start);
+
             File file;
             try {
                 FileInputStream input = new FileInputStream("resource\\background.png");
