@@ -46,9 +46,9 @@ public class MainView extends GridPane {
                 pane.getChildren().add(bg);
                 bg.setLayoutX(200);
                 bg.setLayoutY(300);
-
+               // scene.getStylesheets().add(getClass().getResource("CSSBackground.css").toExternalForm());
             }catch(FileNotFoundException e){
-                System.out.println("dumb ass");
+                System.out.println("error");
             };
 
 

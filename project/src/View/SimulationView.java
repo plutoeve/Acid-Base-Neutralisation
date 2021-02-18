@@ -17,6 +17,10 @@ public class SimulationView {
         resetButton.setOnAction(e->{
             panelView.AcidBox.getSelectionModel().clearSelection();
             panelView.BaseBox.getSelectionModel().clearSelection();
+            panelView.concentrationAcid.clear();
+            panelView.volumeAcid.clear();
+            panelView.concentrationBase.clear();
+            panelView.volumeBase.clear();
         });
         simulationPane.getChildren().add(panelView);
         simulationPane.add(resetButton,1,1);
