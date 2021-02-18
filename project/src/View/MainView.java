@@ -3,6 +3,7 @@ package View;
 import Acid_Base_Neutralisation.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,13 +20,16 @@ public class MainView extends GridPane {
 
 
         AnchorPane pane = new AnchorPane();
-        Scene scene = new Scene(pane, 1000,800);
+        public static Scene scene;
         Button startButton = new Button("start");
         Button resetButton = new Button("reset");
         Label label = new Label("Simulation: Acid-base neutralization");
 
-        public MainView() {
+
+
+    public MainView() {
             pane.setPrefSize(300, 300);
+            scene = new Scene(pane,700 , 600);
             Main.firstStage.setScene(scene);
 
             label.setLayoutX(150);
