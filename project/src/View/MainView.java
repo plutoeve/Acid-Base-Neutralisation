@@ -9,12 +9,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.control.*;
+import javafx.scene.layout.GridPane;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
-public class MainView {
+public class MainView extends GridPane {
 
 
         AnchorPane pane = new AnchorPane();

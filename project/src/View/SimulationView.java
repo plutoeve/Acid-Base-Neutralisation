@@ -1,5 +1,6 @@
 package View;
 
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -12,6 +13,7 @@ public class SimulationView {
     ControlPanelView panelView = new ControlPanelView();
 
     public SimulationView(){
+        simulationPane.setAlignment(Pos.CENTER);
         resetButton.setOnAction(e->{
             panelView.AcidBox.getSelectionModel().clearSelection();
             panelView.BaseBox.getSelectionModel().clearSelection();
