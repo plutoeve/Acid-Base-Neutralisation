@@ -3,7 +3,6 @@ package View;
 import Acid_Base_Neutralisation.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,11 +28,12 @@ public class MainView extends GridPane {
 
     public MainView() {
             pane.setPrefSize(300, 300);
-            scene = new Scene(pane,700 , 600);
+            scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
 
             label.setLayoutX(150);
             label.setLayoutY(100);
+            label.setStyle("-fx-color: white;");
             startButton.setTranslateY(200);
             startButton.setTranslateX(150);
 
@@ -41,19 +41,6 @@ public class MainView extends GridPane {
             pane.getChildren().add(startButton);
 
             startButton.setOnAction(start);
-
-            File file;
-            try {
-                FileInputStream input = new FileInputStream("resource\\background.png");
-                Image background = new Image(input);
-                ImageView bg = new ImageView(background);
-                pane.getChildren().add(bg);
-                bg.setLayoutX(200);
-                bg.setLayoutY(300);
-
-            }catch(FileNotFoundException e){
-                System.out.println("error");
-            };
 
 
         }

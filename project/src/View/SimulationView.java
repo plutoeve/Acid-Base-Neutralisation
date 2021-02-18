@@ -1,5 +1,6 @@
 package View;
 
+import View.ControlPanelView;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
