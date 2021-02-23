@@ -30,9 +30,9 @@ public class MainView extends GridPane {
             scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
 
-            label.setLayoutX(150);
-            label.setLayoutY(100);
-            label.setStyle("-fx-font: normal bold 20px 'serif' ;-fx-text-fill: white;");
+            label.setLayoutX(380);
+            label.setLayoutY(50);
+            label.setStyle("-fx-font: normal bold 20px 'serif' ;-fx-text-fill: beige;");
             startButton.setTranslateY(200);
             startButton.setTranslateX(150);
 
