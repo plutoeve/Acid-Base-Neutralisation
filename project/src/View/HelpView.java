@@ -16,7 +16,7 @@ public class HelpView extends VBox {
                         "for our program.");
                 this.getChildren().addAll(text);
 
-                HelpScene = new Scene(this,1000,700);
+
         }
 
 }
