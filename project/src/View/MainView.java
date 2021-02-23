@@ -20,21 +20,19 @@ public class MainView extends GridPane {
 
         AnchorPane pane = new AnchorPane();
         public static Scene scene;
-        Button startButton = new Button("START");
-        Button resetButton = new Button("RESET");
-        Label label = new Label("Simulation: Acid-Base Neutralisation");
+        Button startButton = new Button("start");
+        Button resetButton = new Button("reset");
+        Label label = new Label("Simulation: Acid-base neutralization");
 
 
     public MainView() {
-
             pane.setPrefSize(300, 300);
             scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
 
             label.setLayoutX(150);
             label.setLayoutY(100);
-            label.setStyle("-fx-font-size: 50px");
-
+            label.setStyle("-fx-font: normal bold 20px 'serif' ;-fx-text-fill: white;");
             startButton.setTranslateY(200);
             startButton.setTranslateX(150);
 
@@ -46,9 +44,7 @@ public class MainView extends GridPane {
 
         }
 
-
-
-    EventHandler start = new EventHandler() {
+        EventHandler start = new EventHandler() {
             @Override
             public void handle(Event event) {
                 SimulationView sv = new SimulationView();
