@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 public class SimulationView {
     Scene simulationScene;
@@ -28,7 +29,10 @@ public class SimulationView {
 
         HelpButton.setOnAction(e->{
             HelpView hv = new HelpView();
-            Main.firstStage.setScene(hv.HelpScene);
+            Stage helpStage = new Stage();
+            helpStage.setTitle("Help: Formulas, equations, and instructions");
+            helpStage.setScene(new Scene(hv, 1000,700));
+            helpStage.show();
         });
 
         simulationPane.getChildren().add(panelView);
