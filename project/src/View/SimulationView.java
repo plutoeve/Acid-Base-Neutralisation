@@ -50,7 +50,7 @@ public class SimulationView {
         buttonBox.setAlignment(Pos.CENTER);
         buttonBox.setSpacing(30);
         simulationPane.add(controlPane,1,0);
-        controlPane.setStyle("-fx-background-radius: 6px;");
+        controlPane.setStyle("-fx-background-width: 6px;");
         simulationPane.setAlignment(Pos.BOTTOM_CENTER);
         simulationScene = new Scene(simulationPane,700 ,700 );
 
