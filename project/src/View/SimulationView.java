@@ -7,17 +7,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class SimulationView {
     Scene simulationScene;
+    GridPane controlPane = new GridPane();
     GridPane simulationPane = new GridPane();
-    Button resetButton = new Button("RESET");
     ControlPanelView panelView = new ControlPanelView();
-    Button HelpButton = new Button("Help");
+
+    VBox buttonBox = new VBox();
+    Button resetButton = new Button("Reset");
+    Button helpButton = new Button("Help");
+    Button darkButton = new Button("Dark");
 
     public SimulationView(){
-        simulationPane.setAlignment(Pos.CENTER);
+        controlPane.setHgap(20);
+        controlPane.setVgap(20);
         resetButton.setOnAction(e->{
             panelView.AcidBox.getSelectionModel().clearSelection();
             panelView.BaseBox.getSelectionModel().clearSelection();
@@ -27,7 +33,7 @@ public class SimulationView {
             panelView.volumeBase.clear();
         });
 
-        HelpButton.setOnAction(e->{
+        helpButton.setOnAction(e->{
             HelpView hv = new HelpView();
             Stage helpStage = new Stage();
             helpStage.setTitle("Help: Formulas, equations, and instructions");
@@ -35,9 +41,17 @@ public class SimulationView {
             helpStage.show();
         });
 
-        simulationPane.getChildren().add(panelView);
-        simulationPane.add(resetButton,1,1);
-        simulationPane.add(HelpButton, 1,2);
+        darkButton.setOnAction(e->{
+            simulationScene.getStylesheets().add("View/dark.css");
+        });
+        buttonBox.getChildren().addAll(resetButton, helpButton, darkButton);
+        controlPane.getChildren().add(panelView);
+        controlPane.add(buttonBox,1,0);
+        buttonBox.setAlignment(Pos.CENTER);
+        buttonBox.setSpacing(30);
+        simulationPane.add(controlPane,1,0);
+        controlPane.setStyle("-fx-background-radius: 6px;");
+        simulationPane.setAlignment(Pos.BOTTOM_CENTER);
         simulationScene = new Scene(simulationPane,700 ,700 );
 
     }
