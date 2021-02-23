@@ -1,5 +1,6 @@
 package View;
 
+import Acid_Base_Neutralisation.Main;
 import View.ControlPanelView;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
@@ -12,6 +13,7 @@ public class SimulationView {
     GridPane simulationPane = new GridPane();
     Button resetButton = new Button("RESET");
     ControlPanelView panelView = new ControlPanelView();
+    Button HelpButton = new Button("Help");
 
     public SimulationView(){
         simulationPane.setAlignment(Pos.CENTER);
@@ -23,9 +25,17 @@ public class SimulationView {
             panelView.concentrationBase.clear();
             panelView.volumeBase.clear();
         });
+
+        HelpButton.setOnAction(e->{
+            HelpView hv = new HelpView();
+            Main.firstStage.setScene(hv.HelpScene);
+        });
+
         simulationPane.getChildren().add(panelView);
         simulationPane.add(resetButton,1,1);
+        simulationPane.add(HelpButton, 1,2);
         simulationScene = new Scene(simulationPane,700 ,700 );
+
     }
 
 

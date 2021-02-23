@@ -25,7 +25,6 @@ public class MainView extends GridPane {
         Label label = new Label("Simulation: Acid-base neutralization");
 
 
-
     public MainView() {
             pane.setPrefSize(300, 300);
             scene = new Scene(pane,1000 , 530);
