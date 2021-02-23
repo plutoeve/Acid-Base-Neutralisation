@@ -4,16 +4,10 @@ import Acid_Base_Neutralisation.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class MainView extends GridPane {
 
@@ -31,8 +25,8 @@ public class MainView extends GridPane {
             Main.firstStage.setScene(scene);
 
             label.setLayoutX(380);
-            label.setLayoutY(50);
-            label.setStyle("-fx-font: normal bold 20px 'serif' ;-fx-text-fill: beige;");
+            label.setLayoutY(30);
+            label.setStyle("-fx-font: normal bold 30px 'serif' ;-fx-text-fill: beige;");
             startButton.setTranslateY(200);
             startButton.setTranslateX(150);
 
