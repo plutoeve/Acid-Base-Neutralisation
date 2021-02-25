@@ -28,8 +28,7 @@ public class HelpView extends VBox {
 
                 Text text = new Text(scan.nextLine());
                 this.getChildren().addAll(text);
-
-
+                System.out.println("LETS GOOO");
         }
 
 }
