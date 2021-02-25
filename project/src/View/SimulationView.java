@@ -1,9 +1,7 @@
 package View;
 
-import Acid_Base_Neutralisation.Main;
-import View.ControlPanelView;
+
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -51,7 +49,7 @@ public class SimulationView {
         buttonBox.setSpacing(30);
         simulationPane.add(controlPane,1,0);
         controlPane.setStyle("-fx-background-width: 6px;");
-        simulationPane.setAlignment(Pos.BOTTOM_CENTER);
+        simulationPane.setAlignment(Pos.BOTTOM_RIGHT);
         simulationScene = new Scene(simulationPane,700 ,700 );
 
     }
