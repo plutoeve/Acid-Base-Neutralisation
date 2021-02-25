@@ -25,12 +25,12 @@ public class ControlPanelView extends GridPane {
         //list of acids
 
         AcidBox.getItems().addAll(
-                "hydrochloric acid (HCl)",
-                "hydrobromic acid (HBr)",
-                "hydroiodic acid (HI)",
-                "sulfuric acid (H2SO4)", //only the first proton is considered strongly acidic)
-                "nitric acid (HNO3)",
-                "perchloric acid (HClO4)"
+                "HCl",
+                "HBr",
+                "HI",
+                "H2SO4", //only the first proton is considered strongly acidic)
+                "HNO3",
+                "HClO4"
         );
 
         AcidBox.setPromptText("Pick Acid");
@@ -38,12 +38,12 @@ public class ControlPanelView extends GridPane {
         //list of bases
 
         BaseBox.getItems().addAll(
-                "sodium hydroxide (NaOH)",
-                "potassium hydroxide (KOH)",
-                "lithium hydroxide (LiOH)",
-                "rubidium hydroxide (RbOH)",
-                "cesium hydroxide (CsOH)",
-                "calcium hydroxide (Ca(OH)2)"
+                "NaOH",
+                "KOH",
+                "LiOH",
+                "RbOH",
+                "CsOH",
+                "Ca(OH)2"
         );
 
         BaseBox.setPromptText("Pick Base");
