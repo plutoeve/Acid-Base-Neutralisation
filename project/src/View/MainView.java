@@ -3,6 +3,7 @@ package View;
 import Acid_Base_Neutralisation.Main;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 
@@ -24,7 +25,7 @@ public class MainView extends GridPane {
             scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
 
-            label.setLayoutX(380);
+            label.setLayoutX(530/2);
             label.setLayoutY(30);
             label.setStyle("-fx-font: normal bold 30px 'serif' ;-fx-text-fill: beige;");
             startButton.setTranslateY(200);
@@ -34,7 +35,7 @@ public class MainView extends GridPane {
             pane.getChildren().add(startButton);
 
             startButton.setOnAction(start);
-
+            startButton.setAlignment(Pos.CENTER);
 
         }
 

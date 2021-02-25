@@ -2,19 +2,17 @@ package Model;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 
 public class MoleculeModel {
 
+    protected String compoundType;
+    protected SimpleStringProperty empiricalFormula;
+    protected SimpleDoubleProperty molarMass;
 
-    private SimpleStringProperty compoundType, empiricalFormula;
-    private SimpleDoubleProperty quantity;
-
-    public MoleculeModel(String empiricalFormula, String compoundType, double quantity) {
+    public MoleculeModel(String empiricalFormula, double molarMass) {
         this.empiricalFormula = new SimpleStringProperty(empiricalFormula);
-        this.compoundType = new SimpleStringProperty(compoundType);
-        this.quantity = new SimpleDoubleProperty(quantity);
+        this.molarMass = new SimpleDoubleProperty(molarMass);
     }
 
     public String getEmpiricalFormula() {
@@ -29,27 +27,19 @@ public class MoleculeModel {
         this.empiricalFormula.set(empiricalFormula);
     }
 
-    public void setCompoundType(String compoundType) {
-        this.compoundType.set(compoundType);
-    }
-
     public void setQuantity(double quantity) {
-        this.quantity.set(quantity);
-    }
-
-    public String getCompoundType() {
-        return compoundType.get();
-    }
-
-    public SimpleStringProperty compoundTypeProperty() {
-        return compoundType;
+        this.molarMass.set(quantity);
     }
 
     public double getQuantity() {
-        return quantity.get();
+        return molarMass.get();
     }
 
     public SimpleDoubleProperty quantityProperty() {
-        return quantity;
+        return molarMass;
+    }
+
+    public void setCompoundType(String compoundType) {
+        this.compoundType = compoundType;
     }
 }

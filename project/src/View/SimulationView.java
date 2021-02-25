@@ -23,6 +23,7 @@ public class SimulationView {
         controlPane.setHgap(20);
         controlPane.setVgap(20);
         resetButton.setOnAction(e->{
+
             panelView.AcidBox.getSelectionModel().clearSelection();
             panelView.BaseBox.getSelectionModel().clearSelection();
             panelView.concentrationAcid.clear();
