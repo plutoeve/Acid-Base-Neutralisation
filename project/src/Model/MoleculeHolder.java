@@ -3,7 +3,7 @@ package Model;
 import java.util.HashMap;
 
 public class MoleculeHolder {
-    HashMap<String, MoleculeModel> hashMap = new HashMap<String, MoleculeModel>();
+    static HashMap<String, MoleculeModel> hashMap = new HashMap<String, MoleculeModel>();
 
 
     public MoleculeHolder() {
@@ -18,7 +18,12 @@ public class MoleculeHolder {
     MoleculeModel SodiumHydroxide = new BaseModel("NaOH", "Na", 39.997 );
     MoleculeModel PotassiumHydroxide = new BaseModel("KOH","K", 56.1056);
     MoleculeModel LithiumHydroxide = new BaseModel("LiOH","Li",23.95);
+    MoleculeModel RubidiumHydroxide = new BaseModel("RbOH","Rb",102.475 );
+    MoleculeModel CesiumHydroxide = new BaseModel("CsOH","Cs",149.913 );
+    MoleculeModel CalciumHydroxide = new BaseModel("Ca(OH)2","Ca",149.912 );
+    /***- HashMap put -***/
 
+    hashMap.put(HydrochloricAcid.getEmpiricalFormula(),HydrochloricAcid);
 
     }
 
