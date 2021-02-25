@@ -11,9 +11,8 @@ import javafx.stage.Stage;
 public class SimulationView {
     Scene simulationScene;
     GridPane controlPane = new GridPane();
-    GridPane simulationPane = new GridPane();
     ControlPanelView panelView = new ControlPanelView();
-
+    Animation animation = new Animation();
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");
     Button helpButton = new Button("Help");
@@ -22,10 +21,12 @@ public class SimulationView {
     public SimulationView(){
         controlPane.setHgap(20);
         controlPane.setVgap(20);
+
         resetButton.setOnAction(e->{
 
             panelView.AcidBox.getSelectionModel().clearSelection();
             panelView.BaseBox.getSelectionModel().clearSelection();
+
             panelView.concentrationAcid.clear();
             panelView.volumeAcid.clear();
             panelView.concentrationBase.clear();
@@ -43,18 +44,30 @@ public class SimulationView {
         darkButton.setOnAction(e->{
             simulationScene.getStylesheets().add("View/dark.css");
         });
+
         buttonBox.getChildren().addAll(resetButton, helpButton, darkButton);
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
+
         buttonBox.setAlignment(Pos.CENTER);
         buttonBox.setSpacing(30);
-        simulationPane.add(controlPane,1,0);
         controlPane.setStyle("-fx-background-width: 6px;");
-        simulationPane.setAlignment(Pos.BOTTOM_RIGHT);
-        simulationScene = new Scene(simulationPane,700 ,700 );
+        controlPane.getChildren().add(animation);
+        simulationScene = new Scene(controlPane,700 ,700 );
+
+        controlPane.setAlignment(Pos.BOTTOM_CENTER);
 
     }
 
+    public GridPane getControlPane() {
+        return controlPane;
+    }
 
+    public ControlPanelView getPanelView() {
+        return panelView;
+    }
 
+    public void setPanelView(ControlPanelView panelView) {
+        this.panelView = panelView;
+    }
 }

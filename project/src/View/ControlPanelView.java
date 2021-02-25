@@ -65,4 +65,28 @@ public class ControlPanelView extends GridPane {
         this.setHgap(30);
         this.setVgap(30);
     }
+
+    public ComboBox getAcidBox() {
+        return AcidBox;
+    }
+
+    public ComboBox getBaseBox() {
+        return BaseBox;
+    }
+
+    public TextField getConcentrationAcid() {
+        return concentrationAcid;
+    }
+
+    public TextField getConcentrationBase() {
+        return concentrationBase;
+    }
+
+    public TextField getVolumeAcid() {
+        return volumeAcid;
+    }
+
+    public TextField getVolumeBase() {
+        return volumeBase;
+    }
 }

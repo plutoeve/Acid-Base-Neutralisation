@@ -11,24 +11,24 @@ import java.util.Scanner;
 
 public class HelpView extends VBox {
 
-        File file;
-        Scanner scan;
-
-        {
-                try {
-                        new File("Help.txt");
-                        scan = new Scanner(file);
-                } catch (FileNotFoundException e) {
-                        e.printStackTrace();
-                }
-        }
 
 
         public HelpView(){
 
-                Text text = new Text(scan.nextLine());
-                this.getChildren().addAll(text);
-                System.out.println("LETS GOOO");
+                try {
+                        File file = new File("project/src/View/unicorn.txt");
+                        Scanner scan = new Scanner(file);
+                        String message = "";
+                        while(scan.hasNextLine()){
+                                message = message + scan.nextLine()+("\n");
+                        }
+                        Text help = new Text(message);
+                        this.getChildren().add(help);
+                } catch (FileNotFoundException e) {
+                        System.out.println("file not found");;
+                }
+
+
         }
 
 }
