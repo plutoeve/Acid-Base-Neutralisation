@@ -15,7 +15,7 @@ public class Main extends Application{
         stage.setTitle("Neutralisation Simulator");
         MainView mv = new MainView();
         MainView.scene.getStylesheets().addAll(this.getClass().getResource("CSSBackground.css").toExternalForm());
-
+        
         stage.show();
     }
     public static void main(String[] arg){
