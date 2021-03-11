@@ -12,7 +12,7 @@ public class SimulationView {
     Scene simulationScene;
     GridPane controlPane = new GridPane();
     ControlPanelView panelView = new ControlPanelView();
-    Animation animation = new Animation();
+   //Animation animation = new Animation();
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");
     Button helpButton = new Button("Help");
@@ -52,7 +52,7 @@ public class SimulationView {
         buttonBox.setAlignment(Pos.CENTER);
         buttonBox.setSpacing(30);
         controlPane.setStyle("-fx-background-width: 6px;");
-        controlPane.getChildren().add(animation);
+        //controlPane.getChildren().add(animation);
         simulationScene = new Scene(controlPane,700 ,700 );
 
         controlPane.setAlignment(Pos.BOTTOM_CENTER);
