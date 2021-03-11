@@ -15,7 +15,7 @@ public class ControlPanelView extends GridPane {
     TextField volumeBase = new TextField();
 
     public ControlPanelView(){
-        super();
+
         Text acid = new Text("Acid");
         add(acid,0,0);
 
