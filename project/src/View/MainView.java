@@ -1,6 +1,8 @@
 
 package View;
 import Acid_Base_Neutralisation.Main;
+import Controller.ReactionController;
+import Model.MoleculeHolder;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -44,6 +46,7 @@ public class MainView extends GridPane {
             public void handle(Event event) {
                 SimulationView sv = new SimulationView();
                 Main.firstStage.setScene(sv.simulationScene);
+                ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
             }
         };
     }

@@ -12,11 +12,13 @@ public class SimulationView {
     Scene simulationScene;
     GridPane controlPane = new GridPane();
     ControlPanelView panelView = new ControlPanelView();
+
    //Animation animation = new Animation();
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");
     Button helpButton = new Button("Help");
     Button darkButton = new Button("Dark");
+    Button startButton = new Button("start");
 
     public SimulationView(){
         controlPane.setHgap(20);
@@ -45,7 +47,7 @@ public class SimulationView {
             simulationScene.getStylesheets().add("View/dark.css");
         });
 
-        buttonBox.getChildren().addAll(resetButton, helpButton, darkButton);
+        buttonBox.getChildren().addAll(resetButton, helpButton, darkButton, startButton);
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
 
@@ -69,5 +71,9 @@ public class SimulationView {
 
     public void setPanelView(ControlPanelView panelView) {
         this.panelView = panelView;
+    }
+
+    public Button getStartButton() {
+        return startButton;
     }
 }
