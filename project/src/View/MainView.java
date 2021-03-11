@@ -21,11 +21,11 @@ public class MainView extends GridPane {
 
 
     public MainView() {
-            pane.setPrefSize(300, 300);
+            //pane.setPrefSize(300, 300); when creating the scene the dimensions are already there so no need for this
             scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
 
-            label.setLayoutX(530/2);
+            label.setLayoutX(265);
             label.setLayoutY(30);
             label.setStyle("-fx-font: normal bold 30px 'serif' ;-fx-text-fill: beige;");
             startButton.setTranslateY(200);
@@ -35,8 +35,8 @@ public class MainView extends GridPane {
             pane.getChildren().add(startButton);
 
             startButton.setOnAction(start);
-            startButton.setAlignment(Pos.CENTER);
-
+            startButton.setTranslateX(500);
+            startButton.setTranslateY(265);
         }
 
         EventHandler start = new EventHandler() {
