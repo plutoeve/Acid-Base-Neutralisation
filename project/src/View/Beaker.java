@@ -20,7 +20,7 @@ public class Beaker extends BorderPane {
 
         imageView.setFitWidth(160);
         imageView.setFitHeight(160);
-        imageView.setPreserveRatio(false);
+        imageView.setPreserveRatio(true);
         this.getChildren().add(imageView);
         this.setCenter(imageView);
 

@@ -20,11 +20,8 @@ public class RedFlask extends BorderPane {
         imageView.setFitWidth(160);
         imageView.setFitHeight(160);
         imageView.setPreserveRatio(false);
-
-        imageView.rotateProperty().setValue(90);
-
         this.getChildren().add(imageView);
-        this.setCenter(imageView);
+
 
     }
 }

@@ -24,7 +24,7 @@ public class BlueFlask extends BorderPane {
         imageView.rotateProperty().setValue(90);
 
         this.getChildren().add(imageView);
-        this.setCenter(imageView);
+
 
     }
 
