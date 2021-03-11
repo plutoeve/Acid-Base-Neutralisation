@@ -10,19 +10,21 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 
+import java.io.FileNotFoundException;
+
 public class MainView extends GridPane {
 
 
         AnchorPane pane = new AnchorPane();
         public static Scene scene;
         Button startButton = new Button("start");
-        Button resetButton = new Button("reset");
+
         Label label = new Label("Simulation: Acid-base neutralization");
 
 
     public MainView() {
-            //pane.setPrefSize(300, 300); when creating the scene the dimensions are already there so no need for this
-            scene = new Scene(pane,1000 , 530);
+
+        scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
 
             label.setLayoutX(265);
