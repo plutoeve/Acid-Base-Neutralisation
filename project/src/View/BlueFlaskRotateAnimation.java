@@ -26,4 +26,5 @@ public class BlueFlaskRotateAnimation extends Pane {
     public BlueFlask getFlask() {
         return this.flask;
     }
+
 }
