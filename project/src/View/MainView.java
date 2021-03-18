@@ -11,6 +11,9 @@ import javafx.scene.layout.AnchorPane;
 
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+
+import java.io.FileNotFoundException;
 
 import java.io.FileNotFoundException;
 
@@ -28,6 +31,8 @@ public class MainView extends GridPane {
 
         scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
+
+
 
             label.setLayoutX(265);
             label.setLayoutY(30);

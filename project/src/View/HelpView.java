@@ -11,8 +11,6 @@ import java.util.Scanner;
 
 public class HelpView extends VBox {
 
-
-
         public HelpView(){
 
                 try {
@@ -32,3 +30,5 @@ public class HelpView extends VBox {
         }
 
 }
+
+

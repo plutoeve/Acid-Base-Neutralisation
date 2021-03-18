@@ -52,6 +52,20 @@ public class SimulationView {
         });
 
         buttonBox.getChildren().addAll(resetButton, helpButton, darkButton);
+
+
+
+        // Testing animation Below
+
+        LiquidAnim la = new LiquidAnim();
+        la.animate();
+        controlPane.add(la,0,3);
+
+
+
+        //Testing animation above
+
+
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
 
@@ -81,7 +95,7 @@ public class SimulationView {
 
 */
 
-        controlPane.setAlignment(Pos.BOTTOM_CENTER);
+       controlPane.setAlignment(Pos.BOTTOM_CENTER);
     }
 
     public GridPane getControlPane() {
