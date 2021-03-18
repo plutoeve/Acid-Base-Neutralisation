@@ -5,13 +5,14 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 
 public class ReactionController {
-    ArrayList values;
     boolean baseAllEmpty;
     boolean acidAllEmpty;
     String BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
+    int bvolume, avolume, bconcentration, aconcentration;
 
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
         ControlPanelView cpv = simulationView.getPanelView();
@@ -36,23 +37,20 @@ public class ReactionController {
                                 AcidVolume = BaseVolume;
                                 BaseConcentration = Integer.toString(baseConcentration);
                             }else if(acidAllEmpty){
-                                int acidConcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(BaseVolume));
                                 AcidVolume = BaseVolume;
-                                AcidConcentration = Integer.toString(acidConcentration);
+                                int acidConcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(BaseVolume));
+
                             }else{}
                             break;
 
                     case 3: switch(WhatIsMissing()){
-                            case "base concentration": int baseConcentration = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseVolume));
-                                                       BaseConcentration = Integer.toString(baseConcentration);
+                            case "base concentration": bconcentration = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseVolume));
 
-                            case "acid concentration":int acidConcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(AcidVolume));
-                                                       AcidConcentration = Integer.toString(acidConcentration);
+                            case "acid concentration":aconcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(AcidVolume));
 
-                            case "base volume":int baseVolume = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseConcentration));
-                                                       BaseVolume = Integer.toString(baseVolume);
-                            case "acid volume":  int acidVolume = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(AcidVolume));
-                                                       AcidVolume = Integer.toString(acidVolume);
+                            case "base volume": bvolume = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseConcentration));
+
+                            case "acid volume": avolume = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(AcidVolume));
                             }
                             break;
 
@@ -61,7 +59,7 @@ public class ReactionController {
                             if(balanced){
                                 System.out.println("yeah it is good");
                             }else{
-                                System.out.println("try to make it balanced...or leave one or two Textfield blank"); };
+                                System.out.println("try to make it balanced...or leave one or two Textfield blank"); }
                             break;
                     default: System.out.println("nothing is there... please input something");
                             break;
@@ -69,35 +67,37 @@ public class ReactionController {
             }
         };
 
-        //  simulationView.getStartButton().setOnAction(startHandler);   there was an error
+     //   simulationView.getStartButton().setOnAction(startHandler);
 
 
 
     }
 
-   public int PickCase(ControlPanelView controlPanelView) {
+   int PickCase(ControlPanelView controlPanelView){
+       int c = 4;
 
-        values = new ArrayList<Integer>();
-        BaseVolume = controlPanelView.getVolumeBase().getText();
-        AcidVolume = controlPanelView.getVolumeBase().getText();
-        BaseConcentration = controlPanelView.getConcentrationBase().getText();
-        AcidConcentration = controlPanelView.getConcentrationAcid().getText();
-        String[] Parameters = {AcidConcentration, BaseConcentration, AcidVolume, BaseVolume};
-        if((BaseConcentration.isEmpty()&&BaseVolume.isEmpty())){
-            baseAllEmpty = true;
-        }
-        if((AcidConcentration.isEmpty()&&AcidVolume.isEmpty())){
-            acidAllEmpty = true;
-        }
-        int c = 4;
-        for (String str : Parameters) {
-            if(str.isEmpty() == true){ c--;}
-            else{values.add(Integer.parseInt(str));}
-        }
-        return c;
-    }
+           BaseVolume = controlPanelView.getVolumeBase().getText();
+           AcidVolume = controlPanelView.getVolumeAcid().getText();
+           BaseConcentration = controlPanelView.getConcentrationBase().getText();
+           AcidConcentration = controlPanelView.getConcentrationAcid().getText();
+           String[] Parameters = {AcidConcentration, BaseConcentration, AcidVolume, BaseVolume};
+           if (BaseConcentration.isEmpty() && BaseVolume.isEmpty()) {
+               baseAllEmpty = true;
+           }
+           if (AcidConcentration.isEmpty() && AcidVolume.isEmpty()) {
+               acidAllEmpty = true;
+           }
+
+           for (String str : Parameters) {
+               if (str.isEmpty()) {
+                   c--;
+               }
+           }
+           return c;
+       }
 
     public String WhatIsMissing(){
+        int c = 0;
         if(BaseConcentration.isEmpty()){
             return"base concentration";
         }

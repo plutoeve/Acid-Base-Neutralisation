@@ -6,8 +6,10 @@ public class Calculations {
 
     //if there is 4 input parameters
     static Boolean calculate(int c1, int v1, int c2, int v2){
-        if(c1*v1==c2*v2) return true;
-        else return false;
+        System.out.println(c1+" "+v1+" "+c2+" "+v2);
+        boolean b = false;
+        if(c1*v1 == c2*v2){ b = true;}
+        return b;
     }
 
     //if there is 3 input parameters

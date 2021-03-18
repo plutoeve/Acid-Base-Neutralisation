@@ -54,11 +54,12 @@ public class MainView extends GridPane {
                 SimulationView sv = null;
                 try {
                     sv = new SimulationView();
+                    Main.firstStage.setScene(sv.simulationScene);
+                    ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                Main.firstStage.setScene(sv.simulationScene);
-                ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
+
             }
         };
     }
