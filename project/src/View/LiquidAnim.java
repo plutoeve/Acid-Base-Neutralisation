@@ -18,7 +18,7 @@ public class LiquidAnim extends Pane {
     ImageView blue;
   //  InputStream stream = new FileInputStream("src/Resources/water-droplet.png");
 
-    Rectangle rect = new Rectangle(100,40,0,0);
+    Rectangle rect = new Rectangle(100,40);
 
     public LiquidAnim(){
         super();
