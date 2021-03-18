@@ -16,6 +16,7 @@ public class RedFlaskRotateAnimation extends Pane {
 
     public void animate(){
         RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
+
         rt.setByAngle(90);
         rt.setCycleCount(2);
         rt.setAutoReverse(true);
