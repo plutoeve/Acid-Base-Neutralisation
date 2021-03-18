@@ -57,9 +57,9 @@ public class SimulationView {
 
         // Testing animation Below
 
-        LiquidAnim la = new LiquidAnim();
+      /*  LiquidAnim la = new LiquidAnim();
         la.animate();
-        controlPane.add(la,0,3);
+        controlPane.add(la,0,3);*/
 
 
 
