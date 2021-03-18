@@ -23,7 +23,7 @@ public class BlueFlask extends BorderPane {
         imageView.setPreserveRatio(false);
         liquid.animate();
 
-        System.out.println("PRE SEQUEL");
+        System.out.println("PRE SEQUEL GACHA GODS AGAIN");
 
         this.getChildren().addAll(imageView,liquid);
 
