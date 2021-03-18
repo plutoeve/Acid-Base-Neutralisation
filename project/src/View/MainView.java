@@ -46,7 +46,12 @@ public class MainView extends GridPane {
         EventHandler start = new EventHandler() {
             @Override
             public void handle(Event event) {
-                SimulationView sv = new SimulationView();
+                SimulationView sv = null;
+                try {
+                    sv = new SimulationView();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
                 Main.firstStage.setScene(sv.simulationScene);
                 ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
             }

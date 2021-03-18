@@ -5,20 +5,26 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.io.FileNotFoundException;
 
 public class SimulationView {
     Scene simulationScene;
     GridPane controlPane = new GridPane();
     ControlPanelView panelView = new ControlPanelView();
-   //Animation animation = new Animation();
+
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");
     Button helpButton = new Button("Help");
     Button darkButton = new Button("Dark");
 
-    public SimulationView(){
+    BlueFlaskRotateAnimation anim1 = new BlueFlaskRotateAnimation();
+    RedFlaskRotateAnimation anim2 = new RedFlaskRotateAnimation();
+
+    public SimulationView() throws FileNotFoundException {
         controlPane.setHgap(20);
         controlPane.setVgap(20);
 
@@ -49,14 +55,33 @@ public class SimulationView {
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
 
-        buttonBox.setAlignment(Pos.CENTER);
+        //buttonBox.setAlignment(Pos.CENTER);  this doesnt work
         buttonBox.setSpacing(30);
         controlPane.setStyle("-fx-background-width: 6px;");
         //controlPane.getChildren().add(animation);
-        simulationScene = new Scene(controlPane,700 ,700 );
+        simulationScene = new Scene(controlPane,1000 ,900 );
+
+        controlPane.getChildren().addAll(anim1,anim2);
+
+
+        anim1.getFlask().setLayoutX(500);
+        anim2.getFlask().setLayoutX(10);
+
+        anim1.getFlask().setLayoutY(-300);
+        anim2.getFlask().setLayoutY(-300);
+
+        anim1.animate();
+        anim2.animate();
+
+
+/*
+        controlPane.getChildren().add(anim1);
+        anim1.getFlask().setLayoutX(500);            *******Works, will put this stuff with the start/animate****
+        anim1.animate();                              ******button so it doesnt mess up the controlPane*********
+
+*/
 
         controlPane.setAlignment(Pos.BOTTOM_CENTER);
-
     }
 
     public GridPane getControlPane() {

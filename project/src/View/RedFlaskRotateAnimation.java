@@ -21,4 +21,8 @@ public class RedFlaskRotateAnimation extends Pane {
         rt.setAutoReverse(true);
         rt.play();
     }
+
+    public RedFlask getFlask() {
+        return this.flask;
+    }
 }

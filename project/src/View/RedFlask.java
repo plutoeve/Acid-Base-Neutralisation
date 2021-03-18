@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class RedFlask extends BorderPane {
-    InputStream stream = new FileInputStream("src/Resources/RedFlask.png");
+    InputStream stream = new FileInputStream("C:\\Users\\gevor\\IdeaProjects\\Acid-Base Neutralisation\\project\\src\\Resources\\RedFlask.png");
     Image image = new Image(stream);
     ImageView imageView = new ImageView();
 
@@ -17,7 +17,7 @@ public class RedFlask extends BorderPane {
 
         imageView.setImage(image);
 
-        imageView.setFitWidth(160);
+        imageView.setFitWidth(130);
         imageView.setFitHeight(160);
         imageView.setPreserveRatio(false);
         this.getChildren().add(imageView);
