@@ -15,10 +15,10 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class LiquidAnim extends Pane {
-    public ImageView blue;
+    ImageView blue;
   //  InputStream stream = new FileInputStream("src/Resources/water-droplet.png");
 
-   public Rectangle rect = new Rectangle(100,40,0,0);
+    Rectangle rect = new Rectangle(100,40);
 
     public LiquidAnim(){
         super();
@@ -28,11 +28,9 @@ public class LiquidAnim extends Pane {
     }
 
     public void animate(){
-
         TranslateTransition tt = new TranslateTransition(Duration.millis(3000),rect);
         tt.setByY(500);
         tt.setCycleCount(10);
-
         tt.play();
 
        /* FadeTransition ft = new FadeTransition(Duration.millis(3000), rect);
