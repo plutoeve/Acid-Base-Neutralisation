@@ -20,11 +20,7 @@ public class BlueFlask extends BorderPane {
         imageView.setFitWidth(130);
         imageView.setFitHeight(160);
         imageView.setPreserveRatio(false);
-
-        System.out.println("PRE SEQUEL");
-
         this.getChildren().add(imageView);
-
 
     }
 
