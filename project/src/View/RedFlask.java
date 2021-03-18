@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class RedFlask extends BorderPane {
-    InputStream stream = new FileInputStream("project/src/Resources/BlueFlask.png");
+    InputStream stream = new FileInputStream("project/src/Resources/RedFlask.png");
     Image image = new Image(stream);
     ImageView imageView = new ImageView();
 
