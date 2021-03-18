@@ -69,13 +69,13 @@ public class ReactionController {
             }
         };
 
-        simulationView.getStartButton().setOnAction(startHandler);
+        //  simulationView.getStartButton().setOnAction(startHandler);   there was an error
 
 
 
     }
 
-   int PickCase(ControlPanelView controlPanelView) {
+   public int PickCase(ControlPanelView controlPanelView) {
 
         values = new ArrayList<Integer>();
         BaseVolume = controlPanelView.getVolumeBase().getText();
