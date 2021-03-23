@@ -82,7 +82,7 @@ public class SimulationView {
         anim2.getFlask().setLayoutX(10);
 
         anim1.getFlask().setLayoutY(-300);
-        anim2.getFlask().setLayoutY(-300);
+        anim2.getFlask().setLayoutY(-375);
 
         anim1.animate();
         anim2.animate();

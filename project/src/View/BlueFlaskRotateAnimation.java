@@ -9,10 +9,11 @@ import java.io.FileNotFoundException;
 public class BlueFlaskRotateAnimation extends Pane {
 
     private BlueFlask flask = new BlueFlask();
+    private BlueLiquidAnim bluelq = new BlueLiquidAnim();
 
     public BlueFlaskRotateAnimation() throws FileNotFoundException {
         super();
-        this.getChildren().add(flask);
+        this.getChildren().addAll(flask,bluelq);
     }
 
     public void animate(){
@@ -21,6 +22,8 @@ public class BlueFlaskRotateAnimation extends Pane {
         rt.setCycleCount(2);
         rt.setAutoReverse(true);
         rt.play();
+        bluelq.relocate(475,-350);
+        bluelq.animatelq();
     }
 
     public BlueFlask getFlask() {
