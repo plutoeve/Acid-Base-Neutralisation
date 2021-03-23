@@ -12,7 +12,6 @@ public class BlueFlask extends BorderPane {
     InputStream stream = new FileInputStream("project/src/Resources/BlueFlask.png");
     Image image = new Image(stream);
     ImageView imageView = new ImageView();
-   // LiquidAnim liquid = new LiquidAnim();
 
     public BlueFlask() throws FileNotFoundException {
 
@@ -21,13 +20,13 @@ public class BlueFlask extends BorderPane {
         imageView.setFitWidth(130);
         imageView.setFitHeight(160);
         imageView.setPreserveRatio(false);
-      //  liquid.animatelq();
 
 
         this.getChildren().addAll(imageView);
 
 
     }
+
 
 
 }
