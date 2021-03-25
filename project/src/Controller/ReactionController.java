@@ -4,8 +4,6 @@ import Model.*;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 
-import java.util.ArrayList;
-import java.util.Base64;
 
 
 public class ReactionController {
@@ -67,7 +65,7 @@ public class ReactionController {
             }
         };
 
-     //   simulationView.getStartButton().setOnAction(startHandler);
+      simulationView.getStartButton().setOnAction(startHandler);
 
 
 

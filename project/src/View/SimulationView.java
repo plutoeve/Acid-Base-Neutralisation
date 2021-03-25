@@ -20,6 +20,7 @@ public class SimulationView {
     Button resetButton = new Button("Reset");
     Button helpButton = new Button("Help");
     Button darkButton = new Button("Dark");
+    Button startButton = new Button("Start simulating!");
 
     BlueFlaskRotateAnimation anim1 = new BlueFlaskRotateAnimation();
     RedFlaskRotateAnimation anim2 = new RedFlaskRotateAnimation();
@@ -51,7 +52,8 @@ public class SimulationView {
             simulationScene.getStylesheets().add("View/dark.css");
         });
 
-        buttonBox.getChildren().addAll(resetButton, helpButton, darkButton);
+
+        buttonBox.getChildren().addAll(resetButton, helpButton, darkButton, startButton);
 
 
 
@@ -96,6 +98,10 @@ public class SimulationView {
 */
 
        controlPane.setAlignment(Pos.BOTTOM_CENTER);
+    }
+
+    public Button getStartButton() {
+        return startButton;
     }
 
     public GridPane getControlPane() {
