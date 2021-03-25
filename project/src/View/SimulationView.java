@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 
 public class SimulationView {
+    Animation animation = new Animation();
     Scene simulationScene;
     GridPane controlPane = new GridPane();
     ControlPanelView panelView = new ControlPanelView();
@@ -56,7 +57,7 @@ public class SimulationView {
 
         //Testing animation above
 
-
+        controlPane.getChildren().add(animation.pane);
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
 
