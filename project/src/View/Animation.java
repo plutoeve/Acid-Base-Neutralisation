@@ -10,13 +10,14 @@ import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
 
-public class Animation extends GridPane {
+public class Animation{
 
+    GridPane pane =  new GridPane();
     BlueFlaskRotateAnimation anim1 = new BlueFlaskRotateAnimation();
     RedFlaskRotateAnimation anim2 = new RedFlaskRotateAnimation();
 
     public Animation() throws FileNotFoundException {
-        this.getChildren().addAll(anim1,anim2);
+        pane.getChildren().addAll(anim1,anim2);
         anim1.getFlask().setLayoutX(500);
         anim2.getFlask().setLayoutX(10);
 
