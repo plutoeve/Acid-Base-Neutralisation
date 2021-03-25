@@ -12,10 +12,8 @@ import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 
-import java.io.FileNotFoundException;
 
 public class MainView {
 

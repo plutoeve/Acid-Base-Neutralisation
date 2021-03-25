@@ -22,12 +22,14 @@ public class SimulationView {
     Button darkButton = new Button("Dark");
     Button startButton = new Button("Start simulating!");
 
+
     public SimulationView() throws FileNotFoundException {
         controlPane.setHgap(20);
         controlPane.setVgap(20);
 
         resetButton.setOnAction(e->{
 
+            simulationScene.getStylesheets().remove("View/dark.css");
             panelView.AcidBox.getSelectionModel().clearSelection();
             panelView.BaseBox.getSelectionModel().clearSelection();
 
@@ -68,7 +70,7 @@ public class SimulationView {
         simulationScene = new Scene(controlPane,1000 ,900 );
 
 
-       controlPane.setAlignment(Pos.BOTTOM_CENTER);
+        controlPane.setAlignment(Pos.BOTTOM_CENTER);
     }
 
     public Button getStartButton() {
