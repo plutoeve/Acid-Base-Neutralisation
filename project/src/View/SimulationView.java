@@ -18,7 +18,6 @@ public class SimulationView {
 
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");
-    Button helpButton = new Button("Help");
     Button darkButton = new Button("Dark");
     Button startButton = new Button("Start simulating!");
 
@@ -40,20 +39,13 @@ public class SimulationView {
             panelView.volumeBase.clear();
         });
 
-        helpButton.setOnAction(e->{
-            HelpView hv = new HelpView();
-            Stage helpStage = new Stage();
-            helpStage.setTitle("Help: Formulas, equations, and instructions");
-            helpStage.setScene(new Scene(hv, 1000,700));
-            helpStage.show();
-        });
 
         darkButton.setOnAction(e->{
             simulationScene.getStylesheets().add("View/dark.css");
         });
 
 
-        buttonBox.getChildren().addAll(resetButton, helpButton, darkButton, startButton);
+        buttonBox.getChildren().addAll(resetButton, darkButton, startButton);
 
 
 
