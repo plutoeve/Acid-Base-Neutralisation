@@ -38,7 +38,10 @@ public class ReactionController {
                                 AcidVolume = BaseVolume;
                                 int acidConcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(BaseVolume));
 
-                            }else{}
+                            }else{
+
+
+                    }
                             break;
 
                     case 3: switch(WhatIsMissing()){

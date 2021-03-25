@@ -90,12 +90,7 @@ public class SimulationView {
         anim2.animate();
 
 
-/*
-        controlPane.getChildren().add(anim1);
-        anim1.getFlask().setLayoutX(500);            *******Works, will put this stuff with the start/animate****
-        anim1.animate();                              ******button so it doesnt mess up the controlPane*********
 
-*/
 
        controlPane.setAlignment(Pos.BOTTOM_CENTER);
     }
