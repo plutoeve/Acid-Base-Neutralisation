@@ -71,10 +71,10 @@ public class SimulationView {
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
 
-        //buttonBox.setAlignment(Pos.CENTER);  this doesnt work
+
         buttonBox.setSpacing(30);
         controlPane.setStyle("-fx-background-width: 6px;");
-        //controlPane.getChildren().add(animation);
+
         simulationScene = new Scene(controlPane,1000 ,900 );
 
         controlPane.getChildren().addAll(anim1,anim2);
