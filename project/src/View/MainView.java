@@ -24,7 +24,7 @@ public class MainView extends GridPane {
         public static Scene scene;
         Button startButton = new Button("start");
 
-        Label label = new Label("Simulation: Acid-base neutralization");
+        Label label = new Label("Simulation: Acid-Base Neutralisation");
 
 
     public MainView() {
@@ -46,6 +46,7 @@ public class MainView extends GridPane {
             startButton.setOnAction(start);
             startButton.setTranslateX(500);
             startButton.setTranslateY(265);
+            Main.firstStage.setResizable(false);
         }
 
         EventHandler start = new EventHandler() {
@@ -55,6 +56,7 @@ public class MainView extends GridPane {
                 try {
                     sv = new SimulationView();
                     Main.firstStage.setScene(sv.simulationScene);
+                    Main.firstStage.setResizable(true);
                     ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
