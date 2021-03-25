@@ -89,4 +89,6 @@ public class ControlPanelView extends GridPane {
     public TextField getVolumeBase() {
         return volumeBase;
     }
+
+    //create a void function that checks the fields --Gevorg
 }

@@ -8,18 +8,24 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import java.io.FileNotFoundException;
+
 public class Animation extends GridPane {
-    public Animation() {
-//        Circle cir = new Circle(2, 2, 2, Color.RED);
-//
-//        // change circle.translateXProperty from it's current value to 200
-//        KeyValue keyValue = new KeyValue(cir.translateXProperty(), 200);
-//
-//        // over the course of 5 seconds
-//        KeyFrame keyFrame = new KeyFrame(Duration.seconds(10), keyValue);
-//        Timeline timeline = new Timeline(keyFrame);
-//
-//        timeline.play();
+
+    BlueFlaskRotateAnimation anim1 = new BlueFlaskRotateAnimation();
+    RedFlaskRotateAnimation anim2 = new RedFlaskRotateAnimation();
+
+    public Animation() throws FileNotFoundException {
+        this.getChildren().addAll(anim1,anim2);
+        anim1.getFlask().setLayoutX(500);
+        anim2.getFlask().setLayoutX(10);
+
+        anim1.getFlask().setLayoutY(-300);
+        anim2.getFlask().setLayoutY(-375);
+
+        anim1.animate();
+        anim2.animate();
+
     }
 
 

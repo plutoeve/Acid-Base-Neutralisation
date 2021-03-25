@@ -21,9 +21,6 @@ public class SimulationView {
     Button darkButton = new Button("Dark");
     Button startButton = new Button("Start simulating!");
 
-    BlueFlaskRotateAnimation anim1 = new BlueFlaskRotateAnimation();
-    RedFlaskRotateAnimation anim2 = new RedFlaskRotateAnimation();
-
     public SimulationView() throws FileNotFoundException {
         controlPane.setHgap(20);
         controlPane.setVgap(20);
@@ -68,20 +65,6 @@ public class SimulationView {
         controlPane.setStyle("-fx-background-width: 6px;");
 
         simulationScene = new Scene(controlPane,1000 ,900 );
-
-        controlPane.getChildren().addAll(anim1,anim2);
-
-
-        anim1.getFlask().setLayoutX(500);
-        anim2.getFlask().setLayoutX(10);
-
-        anim1.getFlask().setLayoutY(-300);
-        anim2.getFlask().setLayoutY(-375);
-
-        anim1.animate();
-        anim2.animate();
-
-
 
 
        controlPane.setAlignment(Pos.BOTTOM_CENTER);
