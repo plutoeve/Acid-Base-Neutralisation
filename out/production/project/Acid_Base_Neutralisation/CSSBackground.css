@@ -1,0 +1,6 @@
+.root {
+    -fx-background-image: url("background.jpeg");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 100%;
+    -fx-background-color: transparent
+}
