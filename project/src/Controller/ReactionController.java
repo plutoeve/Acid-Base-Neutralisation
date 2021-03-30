@@ -131,10 +131,51 @@ public class ReactionController {
     }
 
     public void checkErrorsInput(){
+        double acidConcentration = 0;
+        double acidVolume = 0;
+        double baseConcentration = 0;
+        double baseVolume = 0;
+        double[] inputArrDouble = {acidConcentration,acidVolume,baseConcentration,baseVolume};
+        String[] inputArrString = {BaseVolume, AcidVolume, BaseConcentration, AcidConcentration};
 
+        try{
 
-        }
+            for(String str: inputArrString){
+                if (str.isEmpty()){
+                    throw new NullPointerException();
+                }
+            }
+
+            acidConcentration = Double.parseDouble(AcidConcentration);
+            acidVolume = Double.parseDouble(AcidVolume);
+            baseConcentration = Double.parseDouble(BaseConcentration);
+            baseVolume = Double.parseDouble(BaseVolume);
+
+            }catch(NumberFormatException numberFormatException){
+            System.err.println("NumberFormatException");
+
+            }
+
+        try{
+            for (double n:inputArrDouble){
+
+                if(n<=0){
+                    throw new NegativeInputException("Number should be positive");
+                }
+            }
+
+            }catch (NegativeInputException negativeInputException) {
+            System.err.println("NegativeInputException");
+            }
+            catch (Exception x){
+            System.err.println(x.getMessage());
+            }
+
     }
+
+
+
+}
 
 
 
