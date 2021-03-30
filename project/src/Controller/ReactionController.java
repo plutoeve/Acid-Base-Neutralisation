@@ -129,6 +129,11 @@ public class ReactionController {
         problem.setScene(errorScene);
         problem.show();
     }
+
+    public void checkErrorsInput(){
+
+
+        }
     }
 
 

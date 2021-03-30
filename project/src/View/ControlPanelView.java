@@ -53,10 +53,10 @@ public class ControlPanelView extends GridPane {
         add(AcidBox,0,1);
         add(BaseBox,1,1);
 
-        concentrationAcid.setPromptText("Please input acid concentration");
-        concentrationBase.setPromptText("Please input base concentration");
-        volumeAcid.setPromptText("Please input acid volume");
-        volumeBase.setPromptText("Please input base volume");
+        concentrationAcid.setPromptText("Input acid concentration");
+        concentrationBase.setPromptText("Input base concentration");
+        volumeAcid.setPromptText("Input acid volume");
+        volumeBase.setPromptText("Input base volume");
         add(concentrationAcid, 0,2);
         add(concentrationBase,1,2);
         add(volumeAcid, 0, 3);
