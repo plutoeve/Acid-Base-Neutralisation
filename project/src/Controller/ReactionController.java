@@ -26,10 +26,13 @@ public class ReactionController {
 
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
         ControlPanelView cpv = simulationView.getPanelView();
+
         //get the name of the chosen reactants
         String chosenAcid = cpv.getAcidBox().getSelectionModel().toString();
         String chosenBase = cpv.getBaseBox().getSelectionModel().toString();
-        //to be done
+
+        System.out.println(chosenAcid + chosenBase);
+
         AcidModel acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
         BaseModel base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
 
@@ -98,8 +101,8 @@ public class ReactionController {
                     }
                     if(!error.isEmpty())displayError(error);
                 }
-                System.out.println("acid concentration = " + acidConcentration + "base concentration = "
-                        + baseConcentration+ "base Volume = " + baseVolume + "acid volume = " + acidVolume);
+
+                displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
 
             }
         };
@@ -213,6 +216,10 @@ public class ReactionController {
         return wrongInput;
     }
 
+    public void displayOutput(double acidConcentration, double baseConcentration, double acidVolume, double baseVolume, AcidModel am, BaseModel bm){
+        System.out.println("the acid that you chose is "+ am.getEmpiricalFormula() + "\n the base that you chose is" + bm.getEmpiricalFormula());
+
+    }
 
 }
 
