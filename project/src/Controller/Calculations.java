@@ -5,7 +5,7 @@ public class Calculations {
     //balance equation
 
     //if there is 4 input parameters
-    static Boolean calculate(int c1, int v1, int c2, int v2){
+    static Boolean calculate(double c1, double v1, double c2, double v2){
         System.out.println(c1+" "+v1+" "+c2+" "+v2);
         boolean b = false;
         if(c1*v1 == c2*v2){ b = true;}
@@ -13,7 +13,7 @@ public class Calculations {
     }
 
     //if there is 3 input parameters
-    static int calculateFourth(int c1, int v1, int value2){
+    static double calculateFourth(double c1, double v1, double value2){
         return (c1*v1/value2);
     }
 

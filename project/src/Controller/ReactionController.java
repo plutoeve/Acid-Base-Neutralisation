@@ -10,15 +10,19 @@ import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 
 public class ReactionController {
     boolean baseAllEmpty;
     boolean acidAllEmpty;
-    String error,BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
-    double acidConcentration = 0;
-    double acidVolume = 0;
-    double baseConcentration = 0;
-    double baseVolume = 0;
+    String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
+    double acidConcentration;
+    double acidVolume;
+    double baseConcentration;
+    double baseVolume;
+    AcidModel chosenAcid;
+    BaseModel chosenBase;
 
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
         ControlPanelView cpv = simulationView.getPanelView();
@@ -33,9 +37,11 @@ public class ReactionController {
 
             @Override
             public void handle(Event event) {
+
                 error = "";
                 int choice = PickCase(cpv);
-                checkErrorsInput();
+                if(checkErrorsInput() == true){}
+                else{
                 switch(choice) {
 
                     case 1: error = "please input more than 1 parameter for it to work";
@@ -43,41 +49,58 @@ public class ReactionController {
                             break;
 
                     case 2: if(baseAllEmpty){
-                                AcidVolume = BaseVolume;
-                                int baseConcentration = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(AcidVolume));
-                                BaseConcentration = Integer.toString(baseConcentration);
+                                baseVolume = acidVolume;
+                                double baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
+
                             }else if(acidAllEmpty){
-                                AcidVolume = BaseVolume;
-                                int acidConcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(BaseVolume));
+                                acidVolume = baseVolume;
+                                double acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
 
-                            }else{
+                            }else if(AcidVolume.isEmpty()&&BaseConcentration.isEmpty()){
+                                acidVolume = baseVolume;
+                                double baseConcentration = Calculations.calculateFourth(acidConcentration, baseVolume, acidVolume);
 
+                            }else if(AcidConcentration.isEmpty()&&BaseVolume.isEmpty()){
+                                baseVolume = acidVolume;
+                                double acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
+                            }else
+                                {
+                                    error = "there is an error compiling the code related to the input";
 
-                    }
+                                }
                             break;
 
                     case 3: switch(WhatIsMissing()){
-                            case "base concentration": bconcentration = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseVolume));
+                            case "base concentration": baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
                             break;
-                            case "acid concentration":aconcentration = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(AcidVolume));
+
+                            case "acid concentration":acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
                             break;
-                            case "base volume": bvolume = Calculations.calculateFourth(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseConcentration));
+
+                            case "base volume": baseVolume = Calculations.calculateFourth(acidConcentration, acidVolume, baseConcentration);
                             break;
-                            case "acid volume": avolume = Calculations.calculateFourth(Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume),Integer.parseInt(AcidVolume));
+
+                            case "acid volume": acidVolume = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
                             }
                             break;
 
                     case 4:
-                        boolean balanced = Calculations.calculate(Integer.parseInt(AcidConcentration),Integer.parseInt(AcidVolume),Integer.parseInt(BaseConcentration),Integer.parseInt(BaseVolume));
+                        boolean balanced = Calculations.calculate(acidConcentration,acidVolume,baseConcentration,baseVolume);
                             if(balanced){
                                 System.out.println("yeah it is good");
-                            }else{
-                                error = "try to make it balanced...or leave one or two Textfield blank"; }
-                            break;
-                            default: error = "nothing is there... please input something";
+                            }else
+                            {
+                                error = "try to make it balanced...or leave one or two values empty"; }
+                                break;
+                    default: error = "nothing is there... please input something";
+
                             break;
                     }
                     if(!error.isEmpty())displayError(error);
+                }
+                System.out.println("acid concentration = " + acidConcentration + "base concentration = "
+                        + baseConcentration+ "base Volume = " + baseVolume + "acid volume = " + acidVolume);
+
             }
         };
 
@@ -141,46 +164,54 @@ public class ReactionController {
         problem.show();
     }
 
-    public void checkErrorsInput(){
-
-        double[] inputArrDouble = {acidConcentration,acidVolume,baseConcentration,baseVolume};
-        String[] inputArrString = {BaseVolume, AcidVolume, BaseConcentration, AcidConcentration};
+    public boolean checkErrorsInput(){
+        boolean wrongInput = false;
+        ArrayList<Double> values = new ArrayList<>();
 
         try{
-
-            for(String str: inputArrString){
-                if (str.isEmpty()){
-                    throw new NullPointerException();
-                }
+            if(!AcidConcentration.isEmpty()){
+                acidConcentration = Double.parseDouble(AcidConcentration);
+                values.add(acidConcentration);
             }
-
-            acidConcentration = Double.parseDouble(AcidConcentration);
-            acidVolume = Double.parseDouble(AcidVolume);
-            baseConcentration = Double.parseDouble(BaseConcentration);
-            baseVolume = Double.parseDouble(BaseVolume);
+            if(!AcidVolume.isEmpty()){
+                acidVolume = Double.parseDouble(AcidVolume);
+                values.add(acidVolume);
+            }
+            if(!BaseConcentration.isEmpty()){
+                baseConcentration = Double.parseDouble(BaseConcentration);
+                values.add(baseConcentration);
+            }
+            if(!BaseVolume.isEmpty()){
+                baseVolume = Double.parseDouble(BaseVolume);
+                values.add(baseVolume);
+            }
 
             }catch(NumberFormatException numberFormatException){
-            System.err.println("NumberFormatException");
-
+            error = "Please put numbers:))";
+            displayError(error);
+            wrongInput = true;
             }
 
         try{
-            for (double n:inputArrDouble){
-
-                if(n<=0){
+            for (Double n : values){
+                if(n <= 0){
                     throw new NegativeInputException("Number should be positive");
                 }
             }
 
-            }catch (NegativeInputException negativeInputException) {
-            System.err.println("NegativeInputException");
+            }
+            catch (NegativeInputException negativeInputException) {
+            error = "Please input anything bigger than 0";
+            displayError(error);
+            wrongInput = true;
             }
             catch (Exception x){
             System.err.println(x.getMessage());
+            wrongInput = true;
             }
 
+        return wrongInput;
     }
-
 
 
 }
