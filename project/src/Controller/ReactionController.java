@@ -3,6 +3,7 @@ import View.*;
 import Model.*;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -14,7 +15,10 @@ public class ReactionController {
     boolean baseAllEmpty;
     boolean acidAllEmpty;
     String error,BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
-    int bvolume, avolume, bconcentration, aconcentration;
+    double acidConcentration = 0;
+    double acidVolume = 0;
+    double baseConcentration = 0;
+    double baseVolume = 0;
 
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
         ControlPanelView cpv = simulationView.getPanelView();
@@ -30,7 +34,9 @@ public class ReactionController {
             @Override
             public void handle(Event event) {
                 error = "";
-                switch(PickCase(cpv)) {
+                int choice = PickCase(cpv);
+                checkErrorsInput();
+                switch(choice) {
 
                     case 1: error = "please input more than 1 parameter for it to work";
 
@@ -82,13 +88,15 @@ public class ReactionController {
     }
 
    int PickCase(ControlPanelView controlPanelView){
-       int c = 4;
+
+           int c = 4;
 
            BaseVolume = controlPanelView.getVolumeBase().getText();
            AcidVolume = controlPanelView.getVolumeAcid().getText();
            BaseConcentration = controlPanelView.getConcentrationBase().getText();
            AcidConcentration = controlPanelView.getConcentrationAcid().getText();
            String[] Parameters = {AcidConcentration, BaseConcentration, AcidVolume, BaseVolume};
+
            if (BaseConcentration.isEmpty() && BaseVolume.isEmpty()) {
                baseAllEmpty = true;
            }
@@ -124,17 +132,17 @@ public class ReactionController {
         final Stage problem = new Stage();
         problem.initModality(Modality.APPLICATION_MODAL);
         VBox ErrorBox = new VBox(21);
-        ErrorBox.getChildren().add(new Text(s));
-        Scene errorScene = new Scene(ErrorBox, 200, 200);
+        ErrorBox.setAlignment(Pos.CENTER);
+        Text text = new Text(s);
+        text.setStyle("-fx-font-size: 14; -fx-font-weight: bold");
+        ErrorBox.getChildren().add(text);
+        Scene errorScene = new Scene(ErrorBox, 400, 200);
         problem.setScene(errorScene);
         problem.show();
     }
 
     public void checkErrorsInput(){
-        double acidConcentration = 0;
-        double acidVolume = 0;
-        double baseConcentration = 0;
-        double baseVolume = 0;
+
         double[] inputArrDouble = {acidConcentration,acidVolume,baseConcentration,baseVolume};
         String[] inputArrString = {BaseVolume, AcidVolume, BaseConcentration, AcidConcentration};
 
