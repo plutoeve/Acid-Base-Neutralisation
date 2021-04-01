@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class RedLiquidAnim extends Pane {
-    InputStream stream = new FileInputStream("project/src/Resources/Red-Drop.jpg");
+    InputStream stream = new FileInputStream("project/src/Resources/Red-Drop.png");
     Image image = new Image(stream);
     ImageView red = new ImageView();
 
