@@ -1,5 +1,6 @@
 package View;
 
+import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -19,8 +20,9 @@ public class BlueFlaskRotateAnimation extends Pane {
     public void animate(){
         RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
         rt.setByAngle(-90);
-        rt.setCycleCount(2);
+        rt.setCycleCount(Animation.INDEFINITE);
         rt.setAutoReverse(true);
+        Animations.movePivot(flask, 50, 10);
         rt.play();
         bluelq.relocate(475,-350);
         bluelq.animatelq();

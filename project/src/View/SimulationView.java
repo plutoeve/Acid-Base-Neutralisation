@@ -2,19 +2,15 @@ package View;
 
 
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 
 public class SimulationView {
-    Animation animation = new Animation();
+    Animations animations = new Animations();
     Scene simulationScene;
     GridPane controlPane = new GridPane();
     ControlPanelView panelView = new ControlPanelView();
@@ -61,7 +57,7 @@ public class SimulationView {
 
         //Testing animation above
 
-        controlPane.getChildren().add(animation.pane);
+        controlPane.getChildren().add(animations.pane);
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
 

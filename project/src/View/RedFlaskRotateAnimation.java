@@ -1,5 +1,6 @@
 package View;
 
+import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.layout.Pane;
@@ -18,14 +19,10 @@ public class RedFlaskRotateAnimation extends Pane {
 
     public void animate(){
         RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
-        //Testing translating height of the flask
-        TranslateTransition tt = new TranslateTransition(Duration.millis(5000),flask);
 
-        tt.setByY(75);
-        tt.play();
-        //////////////////////////////////////////////
+        Animations.movePivot(flask, 100,40);
         rt.setByAngle(90);
-        rt.setCycleCount(2);
+        rt.setCycleCount(Animation.INDEFINITE);
         rt.setAutoReverse(true);
         rt.play();
         redlq.relocate(35,-350);
@@ -35,4 +32,5 @@ public class RedFlaskRotateAnimation extends Pane {
     public RedFlask getFlask() {
         return this.flask;
     }
+
 }
