@@ -17,103 +17,116 @@ import java.util.ArrayList;
 
 
 public class ReactionController {
+    boolean wrongInput;
     boolean baseAllEmpty;
     boolean acidAllEmpty;
     String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
-    double acidConcentration;
-    double acidVolume;
-    double baseConcentration;
-    double baseVolume;
-    AcidModel chosenAcid;
-    BaseModel chosenBase;
+    Double acidConcentration;
+    Double acidVolume;
+    Double baseConcentration;
+    Double baseVolume;
+    AcidModel acid;
+    BaseModel base;
 
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
-        ControlPanelView cpv = simulationView.getPanelView();
 
 
-        EventHandler startHandler =  new EventHandler() {
 
-            @Override
-            public void handle(Event event) {
+        EventHandler startHandler = event -> {
+            clear();
 
-                error = "";
-                int choice = PickCase(cpv);
-                if(checkErrorsInput() == true){}
-                else{
-                switch(choice) {
+            ControlPanelView cpv = simulationView.getPanelView();
+            error = "";
 
-                    case 1: error = "please input more than 1 parameter for it to work";
+            BaseVolume = cpv.getVolumeBase().getText();
+            AcidVolume = cpv.getVolumeAcid().getText();
+            BaseConcentration = cpv.getConcentrationBase().getText();
+            AcidConcentration = cpv.getConcentrationAcid().getText();
+            System.out.println(BaseConcentration+" "+BaseVolume+" "+AcidConcentration+" "+AcidVolume);
+            int choice = PickCase(cpv);
+            checkErrorsInput();
 
-                            break;
+            try {
 
-                    case 2: if(baseAllEmpty){
-                                baseVolume = acidVolume;
-                                double baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
+                String chosenAcid = cpv.getAcidBox().getValue().toString();
+                String chosenBase = cpv.getBaseBox().getValue().toString();
+                System.out.println(chosenAcid + chosenBase);
 
-                            }else if(acidAllEmpty){
-                                acidVolume = baseVolume;
-                                double acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
+                acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
+                base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
 
-                            }else if(AcidVolume.isEmpty()&&BaseConcentration.isEmpty()){
-                                acidVolume = baseVolume;
-                                double baseConcentration = Calculations.calculateFourth(acidConcentration, baseVolume, acidVolume);
 
-                            }else if(AcidConcentration.isEmpty()&&BaseVolume.isEmpty()){
-                                baseVolume = acidVolume;
-                                double acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
-                            }else
-                                {
-                                    error = "there is an error compiling the code related to the input";
 
-                                }
-                            break;
+            }catch(NullPointerException npe){
+                error = error + "\nThe acid and/or the base is not selected\n please try again";
+                wrongInput = true;
 
-                    case 3: switch(WhatIsMissing()){
-                            case "base concentration": baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
-                            break;
+            }catch(Exception e){
+                error = "some error occured";
+                wrongInput = true;
+            }
 
-                            case "acid concentration":acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
-                            break;
+            if(wrongInput == true){}
+            else{
+            switch(choice) {
 
-                            case "base volume": baseVolume = Calculations.calculateFourth(acidConcentration, acidVolume, baseConcentration);
-                            break;
+                case 1: error = "please input more than 1 parameter for it to work";
 
-                            case "acid volume": acidVolume = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
-                            }
-                            break;
+                        break;
 
-                    case 4:
-                        boolean balanced = Calculations.calculate(acidConcentration,acidVolume,baseConcentration,baseVolume);
-                            if(balanced){
-                                System.out.println("yeah it is good");
-                            }else
+                case 2: if(baseAllEmpty){
+                            baseVolume = acidVolume;
+                            baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
+
+                        }else if(acidAllEmpty){
+                            acidVolume = baseVolume;
+                            acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
+
+                        }else if(AcidVolume.isEmpty()&&BaseConcentration.isEmpty()){
+                            acidVolume = baseVolume;
+                            baseConcentration = Calculations.calculateFourth(acidConcentration, baseVolume, acidVolume);
+
+                        }else if(AcidConcentration.isEmpty()&&BaseVolume.isEmpty()){
+                            baseVolume = acidVolume;
+                            acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
+                        }else
                             {
-                                error = "try to make it balanced...or leave one or two values empty"; }
-                                break;
-                    default: error = "No concentration or volume is inputed";
+                                error = "there is an error compiling the code related to the input";
 
+                            }
+                        break;
+
+                case 3: switch(WhatIsMissing()){
+                        case "base concentration": baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
+                        break;
+
+                        case "acid concentration":acidConcentration = Calculations.calculateFourth(baseConcentration, baseVolume, acidVolume);
+                        break;
+
+                        case "base volume": baseVolume = Calculations.calculateFourth(acidConcentration, acidVolume, baseConcentration);
+                        break;
+
+                        case "acid volume": acidVolume = Calculations.calculateFourth(baseConcentration, baseVolume, acidConcentration);
+                        }
+                        break;
+
+                case 4:
+                    boolean balanced = Calculations.calculate(acidConcentration,acidVolume,baseConcentration,baseVolume);
+                        if(balanced){
+                            System.out.println("yeah it is good");
+                        }else{
+                            error = "try to make it balanced...or leave one or two values empty"; }
                             break;
-                    }
+                default: error = "No concentration or volume is inputed";
 
+                        break;
                 }
-                try {
 
-                    String chosenAcid = cpv.getAcidBox().getValue().toString();
-                    String chosenBase = cpv.getBaseBox().getValue().toString();
-                    System.out.println(chosenAcid + chosenBase);
-
-                    AcidModel acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
-                    BaseModel base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
-
-                    displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
-
-                }catch(NullPointerException npe){
-                    error = error + "\nThe acid and/or the base is not selected\n please try again";
-
-                }catch(Exception e){
-
-                }
-                if(!error.isEmpty())displayError(error);
+            }
+            if(!error.isEmpty()) {
+                displayError(error);}
+            else {
+                displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
             }
         };
 
@@ -127,10 +140,6 @@ public class ReactionController {
 
            int c = 4;
 
-           BaseVolume = controlPanelView.getVolumeBase().getText();
-           AcidVolume = controlPanelView.getVolumeAcid().getText();
-           BaseConcentration = controlPanelView.getConcentrationBase().getText();
-           AcidConcentration = controlPanelView.getConcentrationAcid().getText();
            String[] Parameters = {AcidConcentration, BaseConcentration, AcidVolume, BaseVolume};
 
            if (BaseConcentration.isEmpty() && BaseVolume.isEmpty()) {
@@ -145,7 +154,9 @@ public class ReactionController {
                    c--;
                }
            }
+           System.out.println(c);
            return c;
+
        }
 
     public String WhatIsMissing(){
@@ -165,6 +176,7 @@ public class ReactionController {
         }
     }
     public void displayError(String s){
+        wrongInput = true;
         final Stage problem = new Stage();
         problem.initModality(Modality.APPLICATION_MODAL);
         TextFlow ErrorBox = new TextFlow();
@@ -181,8 +193,7 @@ public class ReactionController {
         problem.show();
     }
 
-    public boolean checkErrorsInput(){
-        boolean wrongInput = false;
+    public void checkErrorsInput(){
         ArrayList<Double> values = new ArrayList<>();
 
         try{
@@ -227,7 +238,6 @@ public class ReactionController {
             wrongInput = true;
             }
 
-        return wrongInput;
     }
 
     public void displayOutput(double acidConcentration, double baseConcentration, double acidVolume, double baseVolume, AcidModel am, BaseModel bm){
@@ -278,7 +288,19 @@ public class ReactionController {
         outputStage.setTitle("output");
         outputStage.show();
 
-    }}
+    }
+    public void clear(){
+        acidVolume = null;
+        acidConcentration = null;
+        baseVolume = null;
+        baseConcentration = null;
+        error = null;
+
+        wrongInput = false;
+        baseAllEmpty = false;
+        acidAllEmpty = false;
+    }
+}
 
 
 
