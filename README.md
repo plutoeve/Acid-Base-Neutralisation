@@ -1,4 +1,4 @@
-# 2d_Projectile
+# acid-base neutralisation
 a project for school
 
 When in Doubt, Delete Out file
