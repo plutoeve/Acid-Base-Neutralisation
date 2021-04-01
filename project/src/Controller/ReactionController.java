@@ -1,12 +1,17 @@
 package Controller;
 import View.*;
 import Model.*;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
+import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -27,14 +32,6 @@ public class ReactionController {
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
         ControlPanelView cpv = simulationView.getPanelView();
 
-        //get the name of the chosen reactants
-        String chosenAcid = cpv.getAcidBox().getSelectionModel().toString();
-        String chosenBase = cpv.getBaseBox().getSelectionModel().toString();
-
-        System.out.println(chosenAcid + chosenBase);
-
-        AcidModel acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
-        BaseModel base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
 
         EventHandler startHandler =  new EventHandler() {
 
@@ -101,9 +98,22 @@ public class ReactionController {
                     }
                     if(!error.isEmpty())displayError(error);
                 }
+                try {
 
-                displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
+                    String chosenAcid = cpv.getAcidBox().getValue().toString();
+                    String chosenBase = cpv.getBaseBox().getValue().toString();
+                    System.out.println(chosenAcid + chosenBase);
 
+                    AcidModel acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
+                    BaseModel base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
+
+                    displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
+
+                }catch(NullPointerException npe){
+
+                }catch(Exception e){
+
+                }
             }
         };
 
@@ -217,11 +227,48 @@ public class ReactionController {
     }
 
     public void displayOutput(double acidConcentration, double baseConcentration, double acidVolume, double baseVolume, AcidModel am, BaseModel bm){
-        System.out.println("the acid that you chose is "+ am.getEmpiricalFormula() + "\n the base that you chose is" + bm.getEmpiricalFormula());
 
-    }
+        String acidEmp = am.getEmpiricalFormula();
+        String baseEmp = bm.getEmpiricalFormula();
 
-}
+        TextFlow output = new TextFlow();
+        Text t1 = new Text("the acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
+        t1.setFill(Color.ALICEBLUE);
+
+        Text t2 = new Text("\nThe concentration of the acid is: " + acidConcentration
+                + "\nThe volume of the acid is: " + acidVolume);
+        t2.setFill(Color.BLUEVIOLET);
+
+        Text t3 = new Text("\nThe concentration of the base is: " + baseConcentration
+                + "\nThe volume of the base is: " +baseVolume);
+        t3.setFill(Color.CYAN);
+
+        String str = "\n...Generating equation\nThe chemical equation is: ";
+
+        if(baseEmp == "Ca(OH)2"){
+            str = str + "2" + acidEmp + " + " + baseEmp + " = " + bm.getPrefix() + am.getSufix()  + " + 2H2O";
+
+        }else{
+            str = str + acidEmp + " + " +baseEmp + " = " + bm.getPrefix() + am.getSufix()  + " + H2O";
+        }
+        Text t4 = new Text(str);
+        output.setTextAlignment(TextAlignment.CENTER);
+        output.setPrefSize(600, 300);
+
+        output.setLineSpacing(5.0);
+        //Retrieving the observable list of the TextFlow Pane
+        ObservableList list = output.getChildren();
+        //Adding cylinder to the pane
+        list.addAll(t1, t2, t3, t4);
+
+        Scene scene = new Scene(output);
+
+        Stage outputStage = new Stage();
+        outputStage.setScene(scene);
+        outputStage.setTitle("output");
+        outputStage.show();
+
+    }}
 
 
 
