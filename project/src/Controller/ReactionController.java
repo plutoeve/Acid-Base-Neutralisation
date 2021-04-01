@@ -4,18 +4,15 @@ import Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 
@@ -93,11 +90,11 @@ public class ReactionController {
                             {
                                 error = "try to make it balanced...or leave one or two values empty"; }
                                 break;
-                    default: error = "nothing is there... please input something";
+                    default: error = "No concentration or volume is inputed";
 
                             break;
                     }
-                    if(!error.isEmpty())displayError(error);
+
                 }
                 try {
 
@@ -111,10 +108,12 @@ public class ReactionController {
                     displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
 
                 }catch(NullPointerException npe){
+                    error = error + "\nThe acid and/or the base is not selected\n please try again";
 
                 }catch(Exception e){
 
                 }
+                if(!error.isEmpty())displayError(error);
             }
         };
 
@@ -168,12 +167,16 @@ public class ReactionController {
     public void displayError(String s){
         final Stage problem = new Stage();
         problem.initModality(Modality.APPLICATION_MODAL);
-        VBox ErrorBox = new VBox(21);
-        ErrorBox.setAlignment(Pos.CENTER);
+        TextFlow ErrorBox = new TextFlow();
+        ErrorBox.setStyle("-fx-background-color: #f4a460");
         Text text = new Text(s);
-        text.setStyle("-fx-font-size: 14; -fx-font-weight: bold");
+        text.setStyle("-fx-font-size: 20; -fx-font-weight: bold; -fx-font-family: serif; -fx-padding: 15px;\n" +
+                "    -fx-border-insets: 15px;\n" +
+                "    -fx-background-insets: 15px;");
+        text.setFill(Color.WHITE);
+        ErrorBox.setTextAlignment(TextAlignment.CENTER);
         ErrorBox.getChildren().add(text);
-        Scene errorScene = new Scene(ErrorBox, 400, 200);
+        Scene errorScene = new Scene(ErrorBox, 400, 100);
         problem.setScene(errorScene);
         problem.show();
     }
@@ -215,7 +218,7 @@ public class ReactionController {
 
             }
             catch (NegativeInputException negativeInputException) {
-            error = "Please input anything bigger than 0";
+            error = "Input anything bigger than 0";
             displayError(error);
             wrongInput = true;
             }
@@ -231,18 +234,22 @@ public class ReactionController {
 
         String acidEmp = am.getEmpiricalFormula();
         String baseEmp = bm.getEmpiricalFormula();
-
+        Font font = Font.font("Serif", 15);
         TextFlow output = new TextFlow();
+
         Text t1 = new Text("the acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
         t1.setFill(Color.ALICEBLUE);
+        t1.setFont(font);
 
         Text t2 = new Text("\nThe concentration of the acid is: " + acidConcentration
                 + "\nThe volume of the acid is: " + acidVolume);
         t2.setFill(Color.BLUEVIOLET);
+        t2.setFont(font);
 
         Text t3 = new Text("\nThe concentration of the base is: " + baseConcentration
                 + "\nThe volume of the base is: " +baseVolume);
         t3.setFill(Color.CYAN);
+        t3.setFont(font);
 
         String str = "\n...Generating equation\nThe chemical equation is: ";
 
@@ -253,6 +260,7 @@ public class ReactionController {
             str = str + acidEmp + " + " +baseEmp + " = " + bm.getPrefix() + am.getSufix()  + " + H2O";
         }
         Text t4 = new Text(str);
+        t4.setFont(font);
         output.setTextAlignment(TextAlignment.CENTER);
         output.setPrefSize(600, 300);
 
@@ -261,6 +269,7 @@ public class ReactionController {
         ObservableList list = output.getChildren();
         //Adding cylinder to the pane
         list.addAll(t1, t2, t3, t4);
+        output.setStyle("");
 
         Scene scene = new Scene(output);
 
