@@ -46,17 +46,6 @@ public class SimulationView {
         buttonBox.getChildren().addAll(resetButton, darkButton, startButton);
 
 
-
-        // Testing animation Below
-
-      /*  LiquidAnim la = new LiquidAnim();
-        la.animate();
-        controlPane.add(la,0,3);*/
-
-
-
-        //Testing animation above
-
         controlPane.getChildren().add(animations.pane);
         controlPane.getChildren().add(panelView);
         controlPane.add(buttonBox,1,0);
