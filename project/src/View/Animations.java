@@ -14,7 +14,7 @@ import java.io.FileNotFoundException;
 
 public class Animations {
 
-    GridPane pane =  new GridPane();
+    public GridPane pane =  new GridPane();
     BlueFlaskRotateAnimation blueAnim = new BlueFlaskRotateAnimation();
     RedFlaskRotateAnimation redAnim = new RedFlaskRotateAnimation();
 

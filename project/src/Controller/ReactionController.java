@@ -13,6 +13,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
@@ -128,7 +129,16 @@ public class ReactionController {
             else {
                 displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
             }
+
+            Animations anim = null;
+            try {
+                anim = new Animations();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            simulationView.getControlPane().getChildren().add(anim.pane);
         };
+
 
       simulationView.getStartButton().setOnAction(startHandler);
 
