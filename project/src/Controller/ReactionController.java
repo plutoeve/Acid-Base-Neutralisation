@@ -4,6 +4,7 @@ import Model.*;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -15,6 +16,7 @@ import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 
 public class ReactionController {
@@ -137,7 +139,9 @@ public class ReactionController {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
+
                 simulationView.getControlPane().getChildren().add(anim.pane);
+
 
 
             }

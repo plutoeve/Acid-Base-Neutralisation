@@ -20,7 +20,7 @@ public class BlueLiquidAnim extends Pane {
     InputStream stream = new FileInputStream("project/src/Resources/water-droplet.png");
     Image image = new Image(stream);
     ImageView blue = new ImageView();
-
+    public TranslateTransition tt = new TranslateTransition(Duration.millis(1500),blue);
 
     public BlueLiquidAnim() throws FileNotFoundException{
 
@@ -33,7 +33,7 @@ public class BlueLiquidAnim extends Pane {
     }
 
     public void animatelq(){
-        TranslateTransition tt = new TranslateTransition(Duration.millis(1500),blue);
+
         tt.setByY(300);
         tt.setCycleCount(4);
         tt.play();

@@ -15,6 +15,7 @@ public class RedLiquidAnim extends Pane {
     InputStream stream = new FileInputStream("project/src/Resources/Red-Drop.png");
     Image image = new Image(stream);
     ImageView red = new ImageView();
+    public TranslateTransition tt = new TranslateTransition(Duration.millis(1500),red);
 
     public RedLiquidAnim() throws FileNotFoundException{
         super();
@@ -27,7 +28,7 @@ public class RedLiquidAnim extends Pane {
     }
 
     public void animatelq(){
-        TranslateTransition tt = new TranslateTransition(Duration.millis(1500),red);
+
         tt.setByY(300);
         tt.setCycleCount(4);
         tt.play();

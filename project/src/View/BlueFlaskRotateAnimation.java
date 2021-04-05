@@ -9,9 +9,9 @@ import java.io.FileNotFoundException;
 
 public class BlueFlaskRotateAnimation extends Pane {
 
-    private BlueFlask flask = new BlueFlask();
-    private BlueLiquidAnim bluelq = new BlueLiquidAnim();
-    RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
+    public BlueFlask flask = new BlueFlask();
+    public BlueLiquidAnim bluelq = new BlueLiquidAnim();
+    public RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
     public BlueFlaskRotateAnimation() throws FileNotFoundException {
         super();

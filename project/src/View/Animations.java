@@ -42,5 +42,9 @@ public class Animations {
 
     public void stopAnimation(){
         blueAnim.rt.stop();
+        redAnim.rt.stop();
+
+        blueAnim.bluelq.tt.stop();
+        redAnim.redlq.tt.stop();
     }
 }
