@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class EmptyBeaker extends BorderPane {
-    InputStream stream = new FileInputStream("src/Resources/Beaker.jpg");
+    InputStream stream = new FileInputStream("project/src/Resources/EmptyBeaker.png");
     Image image = new Image(stream);
     ImageView imageView = new ImageView();
 
@@ -17,11 +17,13 @@ public class EmptyBeaker extends BorderPane {
     public EmptyBeaker() throws FileNotFoundException {
         imageView.setImage(image);
 
-        imageView.setFitWidth(160);
-        imageView.setFitHeight(160);
-        imageView.setPreserveRatio(true);
+        imageView.setFitWidth(170);
+        imageView.setFitHeight(170);
+        imageView.setPreserveRatio(false);
         this.getChildren().add(imageView);
-        this.setCenter(imageView);
+        imageView.setX(150);
+        imageView.setY(-180);
+
 
     }
 }

@@ -1,5 +1,6 @@
 package View;
 
+import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -18,7 +19,7 @@ public class RedLiquidAnim extends Pane {
     public RedLiquidAnim() throws FileNotFoundException{
         super();
         red.setImage(image);
-        red.setFitWidth(20);
+        red.setFitWidth(25);
         red.setFitHeight(30);
         red.setPreserveRatio(false);
         this.getChildren().add(red);
@@ -28,7 +29,7 @@ public class RedLiquidAnim extends Pane {
     public void animatelq(){
         TranslateTransition tt = new TranslateTransition(Duration.millis(1500),red);
         tt.setByY(300);
-        tt.setCycleCount(3);
+        tt.setCycleCount(4);
         tt.play();
     }
 

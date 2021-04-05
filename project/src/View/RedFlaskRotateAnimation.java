@@ -22,10 +22,10 @@ public class RedFlaskRotateAnimation extends Pane {
 
         Animations.movePivot(flask, 100,40);
         rt.setByAngle(90);
-        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setCycleCount(2);
         rt.setAutoReverse(true);
         rt.play();
-        redlq.relocate(35,-350);
+        redlq.relocate(160,-350);
         redlq.animatelq();
     }
 

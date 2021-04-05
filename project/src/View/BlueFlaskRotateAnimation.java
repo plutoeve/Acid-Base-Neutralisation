@@ -11,6 +11,7 @@ public class BlueFlaskRotateAnimation extends Pane {
 
     private BlueFlask flask = new BlueFlask();
     private BlueLiquidAnim bluelq = new BlueLiquidAnim();
+    RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
     public BlueFlaskRotateAnimation() throws FileNotFoundException {
         super();
@@ -18,14 +19,15 @@ public class BlueFlaskRotateAnimation extends Pane {
     }
 
     public void animate(){
-        RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
+
         rt.setByAngle(-90);
-        rt.setCycleCount(Animation.INDEFINITE);
+        rt.setCycleCount(2);
         rt.setAutoReverse(true);
         Animations.movePivot(flask, 50, 10);
         rt.play();
-        bluelq.relocate(475,-350);
+        bluelq.relocate(290,-350);
         bluelq.animatelq();
+
     }
 
     public BlueFlask getFlask() {

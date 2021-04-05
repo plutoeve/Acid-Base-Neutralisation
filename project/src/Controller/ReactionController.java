@@ -138,6 +138,8 @@ public class ReactionController {
                     e.printStackTrace();
                 }
                 simulationView.getControlPane().getChildren().add(anim.pane);
+
+
             }
         };
 

@@ -1,5 +1,6 @@
 package View;
 
+import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.Image;
@@ -20,7 +21,6 @@ public class BlueLiquidAnim extends Pane {
     Image image = new Image(stream);
     ImageView blue = new ImageView();
 
-  //  Rectangle rect = new Rectangle(100,40);
 
     public BlueLiquidAnim() throws FileNotFoundException{
 
@@ -29,19 +29,14 @@ public class BlueLiquidAnim extends Pane {
         blue.setFitWidth(20);
         blue.setFitHeight(30);
         blue.setPreserveRatio(false);
-       // rect.setFill(Color.RED);
         this.getChildren().add(blue);
     }
 
     public void animatelq(){
         TranslateTransition tt = new TranslateTransition(Duration.millis(1500),blue);
         tt.setByY(300);
-        tt.setCycleCount(3);
+        tt.setCycleCount(4);
         tt.play();
 
-       /* FadeTransition ft = new FadeTransition(Duration.millis(3000), rect);
-        ft.setFromValue(1.0);
-        ft.setToValue(0);
-        ft.play();*/
     }
 }
