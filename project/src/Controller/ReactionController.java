@@ -130,13 +130,15 @@ public class ReactionController {
                 displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
             }
 
-            Animations anim = null;
-            try {
-                anim = new Animations();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
+            if(!wrongInput) {
+                Animations anim = null;
+                try {
+                    anim = new Animations();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                simulationView.getControlPane().getChildren().add(anim.pane);
             }
-            simulationView.getControlPane().getChildren().add(anim.pane);
         };
 
 
