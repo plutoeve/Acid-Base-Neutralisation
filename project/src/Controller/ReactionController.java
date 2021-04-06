@@ -260,7 +260,7 @@ public class ReactionController {
         TextFlow output = new TextFlow();
 
         Text t1 = new Text("the acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
-        t1.setFill(Color.ALICEBLUE);
+        t1.setFill(Color.BLACK);
         t1.setFont(font);
 
         Text t2 = new Text("\nThe concentration of the acid is: " + acidConcentration
@@ -296,6 +296,7 @@ public class ReactionController {
         Scene scene = new Scene(output);
 
         Stage outputStage = new Stage();
+        outputStage.initModality(Modality.APPLICATION_MODAL);
         outputStage.setScene(scene);
         outputStage.setTitle("output");
         outputStage.show();

@@ -65,15 +65,15 @@ public class SimulationView {
        // controlPane.getChildren().add(animations.pane);
         animation = new Animations();
         GridPane animationPane = animation.pane;
-        controlPane.add(animationPane, 10,20);
-        controlPane.add(panelView,2,1);
-        controlPane.add(buttonBox,1,1);
+        controlPane.add(animationPane, 10,22);
+        controlPane.add(panelView,10,22);
+        controlPane.add(buttonBox,11,22);
 
 
         buttonBox.setSpacing(20);
         controlPane.setStyle("-fx-background-width: 6px;");
 
-        simulationScene = new Scene(controlPane,1300 ,1000 );
+        simulationScene = new Scene(controlPane,830 ,700 );
 
 
 
