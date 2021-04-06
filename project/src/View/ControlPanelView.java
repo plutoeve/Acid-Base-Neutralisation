@@ -15,7 +15,8 @@ public class ControlPanelView extends GridPane {
     TextField volumeBase = new TextField();
 
     public ControlPanelView(){
-
+        this.prefHeightProperty().bind(SimulationView.controlPane.prefHeightProperty());
+        this.prefWidthProperty().bind(SimulationView.controlPane.prefWidthProperty());
         Text acid = new Text("Acid");
         add(acid,0,0);
 

@@ -17,8 +17,6 @@ import java.io.FileNotFoundException;
 
 
 public class MainView {
-
-
         GridPane pane = new GridPane();
         public static Scene scene;
         Button startButton = new Button("START");
@@ -38,6 +36,7 @@ public class MainView {
             scene.getStylesheets().addAll(getClass().getResource(
                     "outline.css"
             ).toExternalForm());
+
             vbox.getChildren().add(label);
             vbox.getChildren().add(startButton);
             vbox.getChildren().add(helpButton);
@@ -102,16 +101,8 @@ public class MainView {
                 SimulationView sv = null;
                 try {
                     sv = new SimulationView();
-                    animation = new Animations();
-                    Pane animationPane = animation.pane;
                     Main.firstStage.setScene(sv.simulationScene);
                     Main.firstStage.setResizable(true);
-
-
-                    animationPane.prefWidthProperty().bind(scene.widthProperty());
-                    animationPane.prefHeightProperty().bind(scene.heightProperty());
-
-                    sv.getControlPane().getChildren().add(animationPane);
 
                     ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
                 } catch (FileNotFoundException e) {

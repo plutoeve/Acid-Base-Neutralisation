@@ -5,6 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
 import java.io.FileNotFoundException;
@@ -12,8 +13,9 @@ import java.io.FileNotFoundException;
 public class SimulationView {
     //Animations animations = new Animations();
     Scene simulationScene;
-    GridPane controlPane = new GridPane();
-    ControlPanelView panelView = new ControlPanelView();
+    public static Animations animation;
+    public static GridPane controlPane = new GridPane();
+    static ControlPanelView panelView = new ControlPanelView();
 
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");
@@ -23,6 +25,7 @@ public class SimulationView {
 
 
     public SimulationView() throws FileNotFoundException {
+        controlPane.setMinSize(300,300);
         controlPane.setHgap(20);
         controlPane.setVgap(20);
 
@@ -60,8 +63,11 @@ public class SimulationView {
 
 
        // controlPane.getChildren().add(animations.pane);
-        controlPane.getChildren().add(panelView);
-        controlPane.add(buttonBox,1,0);
+        animation = new Animations();
+        Pane animationPane = animation.pane;
+        controlPane.add(animationPane, 0,1);
+        controlPane.add(panelView,2,1);
+        controlPane.add(buttonBox,1,1);
 
 
         buttonBox.setSpacing(20);
@@ -70,7 +76,7 @@ public class SimulationView {
         simulationScene = new Scene(controlPane,1300 ,1000 );
 
 
-        controlPane.setAlignment(Pos.BOTTOM_CENTER);
+
     }
 
     public void setDefaultButtonColor(Button defaultButtonColor){

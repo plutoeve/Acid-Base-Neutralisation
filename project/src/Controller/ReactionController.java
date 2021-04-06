@@ -134,7 +134,7 @@ public class ReactionController {
 
             if(!wrongInput) {
                     //creating an animation class
-                MainView.animation.animateAll();
+                SimulationView.animation.animateAll();
 
 
 
