@@ -37,13 +37,6 @@ public class Animations {
         node.setTranslateX(x); node.setTranslateY(y);
     }
 
-    public void stopAnimation(){
-        blueAnim.rt.stop();
-        redAnim.rt.stop();
-
-        blueAnim.bluelq.tt.stop();
-        redAnim.redlq.tt.stop();
-    }
     public void animateAll(){
         blueAnim.animate();
         redAnim.animate();

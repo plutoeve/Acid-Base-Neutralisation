@@ -21,6 +21,8 @@ public class BlueLiquidAnim extends Pane {
     Image image = new Image(stream);
     ImageView blue = new ImageView();
     public TranslateTransition tt = new TranslateTransition(Duration.millis(1500),blue);
+    public TranslateTransition tt2 = new TranslateTransition(Duration.millis(1),blue);
+    public FadeTransition fade = new FadeTransition(Duration.millis(1),blue);
 
     public BlueLiquidAnim() throws FileNotFoundException{
 
@@ -33,10 +35,19 @@ public class BlueLiquidAnim extends Pane {
     }
 
     public void animatelq(){
-
+        fade.setToValue(1.0);
+        fade.play();
         tt.setByY(300);
         tt.setCycleCount(4);
         tt.play();
-
+        tt.setOnFinished(e -> {
+            fade.setToValue(0.0);
+            tt2.setByY(-300);
+            tt2.play();
+            fade.play();});
     }
+
+
+
 }
+

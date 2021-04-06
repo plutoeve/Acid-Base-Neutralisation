@@ -136,7 +136,12 @@ public class ReactionController {
 
 
                 SimulationView.animation.animateAll();
-               // SimulationView.animation.stopAnimation();
+                try {
+                    SimulationView.animation.blueAnim.animateDroplet();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                // SimulationView.animation.stopAnimation();
 
             }
         };
