@@ -138,6 +138,7 @@ public class ReactionController {
                 SimulationView.animation.animateAll();
                 try {
                     SimulationView.animation.blueAnim.animateDroplet();
+                    SimulationView.animation.redAnim.animateDroplet();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }

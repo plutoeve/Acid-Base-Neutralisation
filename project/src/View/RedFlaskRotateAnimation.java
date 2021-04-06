@@ -10,12 +10,12 @@ import java.io.FileNotFoundException;
 
 public class RedFlaskRotateAnimation extends Pane {
     public final RedFlask flask = new RedFlask();
-    public RedLiquidAnim redlq = new RedLiquidAnim();
+
     public RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
     public RedFlaskRotateAnimation() throws FileNotFoundException {
         super();
-        this.getChildren().addAll(flask,redlq);
+        this.getChildren().addAll(flask);
         Animations.movePivot(flask, 100,40);
     }
 
@@ -25,8 +25,16 @@ public class RedFlaskRotateAnimation extends Pane {
         rt.setCycleCount(2);
         rt.setAutoReverse(true);
         rt.play();
+
+    }
+
+    public void animateDroplet() throws FileNotFoundException {
+        RedLiquidAnim redlq = new RedLiquidAnim();
+        this.getChildren().add(redlq);
         redlq.relocate(160,-350);
         redlq.animatelq();
+
+
     }
 
     public RedFlask getFlask() {

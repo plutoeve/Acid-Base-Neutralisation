@@ -10,7 +10,7 @@ import java.io.InputStream;
 
 public class Beaker extends BorderPane {
 
-    InputStream stream = new FileInputStream("src/Resources/Beaker.jpg");
+    InputStream stream = new FileInputStream("project/src/Resources/Beaker.png");
     Image image = new Image(stream);
     ImageView imageView = new ImageView();
 

@@ -29,7 +29,7 @@ public class SimulationView {
         controlPane.setHgap(20);
         controlPane.setVgap(20);
 
-        setDefaultButtonColor(startButton);
+
 
         resetButton.setOnAction(e->{
 
@@ -43,20 +43,20 @@ public class SimulationView {
             panelView.volumeBase.clear();
         });
 
-        setDefaultButtonColor(resetButton);
+
 
         defaultButton.setOnAction(e->{
             simulationScene.getStylesheets().remove("View/dark.css");
 
         });
 
-        setDefaultButtonColor(defaultButton);
+
 
         darkButton.setOnAction(e->{
             simulationScene.getStylesheets().add("View/dark.css");
         });
 
-        setDarkButtonColor(darkButton);
+
 
 
         buttonBox.getChildren().addAll(resetButton, darkButton, defaultButton, startButton);
