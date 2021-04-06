@@ -97,7 +97,9 @@ public class ReactionController {
                                 error = "there is an error compiling the code related to the input";
 
                             }
+
                         break;
+
 
                 case 3: switch(WhatIsMissing()){
                         case "base concentration": baseConcentration = Calculations.calculateFourth(acidConcentration, acidVolume, baseVolume);
@@ -117,6 +119,7 @@ public class ReactionController {
                     boolean balanced = Calculations.calculate(acidConcentration,acidVolume,baseConcentration,baseVolume);
                         if(balanced){
                             System.out.println("yeah it is good");
+
                         }else{
                             error = "try to make it balanced...or leave one or two values empty"; }
                             break;
@@ -132,19 +135,9 @@ public class ReactionController {
                 displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
             }
 
-            if(!wrongInput) {
-                Animations anim = null;
-                try {
-                    anim = new Animations();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-                simulationView.getControlPane().getChildren().add(anim.pane);
+            startAnimation(simulationView);
 
 
-
-            }
         };
 
 
@@ -317,6 +310,22 @@ public class ReactionController {
         wrongInput = false;
         baseAllEmpty = false;
         acidAllEmpty = false;
+    }
+
+    public void startAnimation(SimulationView simulationView){
+        if(!wrongInput) {
+            Animations anim = null;
+            try {
+                anim = new Animations();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            simulationView.getControlPane().getChildren().add(anim.pane);
+
+
+
+        }
     }
 }
 
