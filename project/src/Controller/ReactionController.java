@@ -133,13 +133,10 @@ public class ReactionController {
             }
 
             if(!wrongInput) {
-                    //creating an animation class
+
+
                 SimulationView.animation.animateAll();
-
-
-
-
-
+               // SimulationView.animation.stopAnimation();
 
             }
         };

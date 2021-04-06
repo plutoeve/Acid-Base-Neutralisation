@@ -16,6 +16,7 @@ public class BlueFlaskRotateAnimation extends Pane {
     public BlueFlaskRotateAnimation() throws FileNotFoundException {
         super();
         this.getChildren().addAll(flask,bluelq);
+        Animations.movePivot(flask, 50, 10);
     }
 
     public void animate(){
@@ -23,7 +24,6 @@ public class BlueFlaskRotateAnimation extends Pane {
         rt.setByAngle(-90);
         rt.setCycleCount(2);
         rt.setAutoReverse(true);
-        Animations.movePivot(flask, 50, 10);
         rt.play();
         bluelq.relocate(290,-350);
         bluelq.animatelq();

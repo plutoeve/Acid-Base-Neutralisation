@@ -47,5 +47,6 @@ public class Animations {
     public void animateAll(){
         blueAnim.animate();
         redAnim.animate();
+
     }
 }

@@ -64,8 +64,8 @@ public class SimulationView {
 
        // controlPane.getChildren().add(animations.pane);
         animation = new Animations();
-        Pane animationPane = animation.pane;
-        controlPane.add(animationPane, 0,1);
+        GridPane animationPane = animation.pane;
+        controlPane.add(animationPane, 10,20);
         controlPane.add(panelView,2,1);
         controlPane.add(buttonBox,1,1);
 

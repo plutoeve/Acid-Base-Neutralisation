@@ -16,12 +16,11 @@ public class RedFlaskRotateAnimation extends Pane {
     public RedFlaskRotateAnimation() throws FileNotFoundException {
         super();
         this.getChildren().addAll(flask,redlq);
+        Animations.movePivot(flask, 100,40);
     }
 
     public void animate(){
 
-
-        Animations.movePivot(flask, 100,40);
         rt.setByAngle(90);
         rt.setCycleCount(2);
         rt.setAutoReverse(true);
