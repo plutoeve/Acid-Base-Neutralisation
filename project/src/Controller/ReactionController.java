@@ -133,14 +133,11 @@ public class ReactionController {
             }
 
             if(!wrongInput) {
-                Animations anim = null;
-                try {
-                    anim = new Animations();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
+                    //creating an animation class
+                MainView.animation.animateAll();
 
-                simulationView.getControlPane().getChildren().add(anim.pane);
+
+
 
 
 

@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.FileNotFoundException;
@@ -24,6 +25,7 @@ public class MainView {
         Button helpButton = new Button("HELP");
         Label label = new Label("Simulation: Acid-Base Neutralisation");
         VBox vbox = new VBox();
+        public static Animations animation;
 
     public MainView() {
 
@@ -100,8 +102,17 @@ public class MainView {
                 SimulationView sv = null;
                 try {
                     sv = new SimulationView();
+                    animation = new Animations();
+                    Pane animationPane = animation.pane;
                     Main.firstStage.setScene(sv.simulationScene);
                     Main.firstStage.setResizable(true);
+
+
+                    animationPane.prefWidthProperty().bind(scene.widthProperty());
+                    animationPane.prefHeightProperty().bind(scene.heightProperty());
+
+                    sv.getControlPane().getChildren().add(animationPane);
+
                     ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();

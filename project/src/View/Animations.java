@@ -30,9 +30,6 @@ public class Animations {
         blueAnim.getFlask().setLayoutY(-400);
         redAnim.getFlask().setLayoutY(-400);
 
-        blueAnim.animate();
-        redAnim.animate();
-
 
     }
     public static void movePivot(Node node, double x, double y){
@@ -46,5 +43,9 @@ public class Animations {
 
         blueAnim.bluelq.tt.stop();
         redAnim.redlq.tt.stop();
+    }
+    public void animateAll(){
+        blueAnim.animate();
+        redAnim.animate();
     }
 }
