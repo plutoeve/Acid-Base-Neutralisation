@@ -22,7 +22,7 @@ public class Animations {
     public Animations() throws FileNotFoundException {
         pane.getChildren().addAll(blueAnim,redAnim,beaker);
 
-        beaker.animate();
+
 
         blueAnim.getFlask().setLayoutX(300);
         redAnim.getFlask().setLayoutX(10);
@@ -40,6 +40,7 @@ public class Animations {
     public void animateAll(){
         blueAnim.animate();
         redAnim.animate();
+        beaker.animate();
 
     }
 }
