@@ -15,7 +15,7 @@ public class SimulationView {
     Scene simulationScene;
     public static Animations animation;
     public static GridPane controlPane = new GridPane();
-    static ControlPanelView panelView = new ControlPanelView();
+    public static ControlPanelView panelView = new ControlPanelView();
 
     VBox buttonBox = new VBox();
     Button resetButton = new Button("Reset");

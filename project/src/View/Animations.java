@@ -17,12 +17,12 @@ public class Animations {
     public GridPane pane =  new GridPane();
     public BlueFlaskRotateAnimation blueAnim = new BlueFlaskRotateAnimation();
     public RedFlaskRotateAnimation redAnim = new RedFlaskRotateAnimation();
-    public EmptyBeaker emptyBeaker = new EmptyBeaker();
+    public Beaker beaker = new Beaker();
 
     public Animations() throws FileNotFoundException {
-        pane.getChildren().addAll(blueAnim,redAnim,emptyBeaker);
+        pane.getChildren().addAll(blueAnim,redAnim,beaker);
 
-
+        beaker.animate();
 
         blueAnim.getFlask().setLayoutX(300);
         redAnim.getFlask().setLayoutX(10);

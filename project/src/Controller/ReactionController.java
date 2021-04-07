@@ -142,7 +142,7 @@ public class ReactionController {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                // SimulationView.animation.stopAnimation();
+
 
             }
         };
