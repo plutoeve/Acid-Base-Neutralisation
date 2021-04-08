@@ -1,6 +1,7 @@
 package View;
 
 
+import Acid_Base_Neutralisation.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -18,7 +19,7 @@ public class SimulationView {
     public static ControlPanelView panelView = new ControlPanelView();
 
     VBox buttonBox = new VBox();
-    Button resetButton = new Button("Reset");
+    Button homeButton = new Button("Home");
     Button darkButton = new Button("Dark");
     Button defaultButton = new Button("Default");
     Button startButton = new Button("Start simulating!");
@@ -31,16 +32,9 @@ public class SimulationView {
 
 
 
-        resetButton.setOnAction(e->{
+        homeButton.setOnAction(e->{
 
-
-            panelView.AcidBox.getSelectionModel().clearSelection();
-            panelView.BaseBox.getSelectionModel().clearSelection();
-
-            panelView.concentrationAcid.clear();
-            panelView.volumeAcid.clear();
-            panelView.concentrationBase.clear();
-            panelView.volumeBase.clear();
+            Main.firstStage.setScene(MainView.scene);
         });
 
 
@@ -59,7 +53,7 @@ public class SimulationView {
 
 
 
-        buttonBox.getChildren().addAll(resetButton, darkButton, defaultButton, startButton);
+        buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, startButton);
 
 
        // controlPane.getChildren().add(animations.pane);
