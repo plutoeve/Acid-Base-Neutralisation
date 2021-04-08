@@ -15,6 +15,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
@@ -265,17 +266,19 @@ public class ReactionController {
         Font font = Font.font("Serif", 15);
         TextFlow output = new TextFlow();
 
+        DecimalFormat f = new DecimalFormat("##.00");
+
         Text t1 = new Text("the acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
         t1.setFill(Color.BLACK);
         t1.setFont(font);
 
-        Text t2 = new Text("\nThe concentration of the acid is: " + acidConcentration
-                + "\nThe volume of the acid is: " + acidVolume);
+        Text t2 = new Text("\nThe concentration of the acid is: " + f.format(acidConcentration)+" mol/L"
+                + "\nThe volume of the acid is: " + f.format(acidVolume)+" L");
         t2.setFill(Color.BLUEVIOLET);
         t2.setFont(font);
 
-        Text t3 = new Text("\nThe concentration of the base is: " + baseConcentration
-                + "\nThe volume of the base is: " +baseVolume);
+        Text t3 = new Text("\nThe concentration of the base is: " + f.format(baseConcentration)+" mol/L"
+                + "\nThe volume of the base is: " + f.format(baseVolume)+" L");
         t3.setFill(Color.CYAN);
         t3.setFont(font);
 

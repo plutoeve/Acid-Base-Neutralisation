@@ -37,6 +37,7 @@ public class Beaker extends BorderPane {
         fullBeakerImageView.setX(150);
         fullBeakerImageView.setY(-180);
 
+        fullBeakerImageView.setOpacity(0);
 
         emptyBeakerImageView.setImage(emptyBeakerImage);
 
@@ -60,6 +61,7 @@ public class Beaker extends BorderPane {
         ft2.setFromValue(0);
         ft2.setToValue(1.0);
         ft2.play();
+
 
 
     }
