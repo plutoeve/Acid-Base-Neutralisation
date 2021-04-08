@@ -5,11 +5,15 @@ import Acid_Base_Neutralisation.Main;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class SimulationView {
 
@@ -18,11 +22,15 @@ public class SimulationView {
     public static GridPane controlPane = new GridPane();
     public static ControlPanelView panelView = new ControlPanelView();
 
+    InputStream imgStream = new FileInputStream("project/src/Resources/Home.png");
+    Image img = new Image(imgStream);
+    ImageView imgView= new ImageView(img);
+
     VBox buttonBox = new VBox();
     Button homeButton = new Button("Home");
     Button darkButton = new Button("Dark");
     Button defaultButton = new Button("Default");
-    Button startButton = new Button("Start simulating!");
+    public Button startButton = new Button("Start simulating!");
 
 
     public SimulationView() throws FileNotFoundException {
@@ -30,7 +38,10 @@ public class SimulationView {
         controlPane.setHgap(20);
         controlPane.setVgap(20);
 
+        imgView.setFitHeight(25);
+        imgView.setFitWidth(25);
 
+        homeButton.setGraphic(imgView);
 
         homeButton.setOnAction(e->{
 

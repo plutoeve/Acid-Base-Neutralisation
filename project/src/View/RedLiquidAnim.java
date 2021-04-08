@@ -33,7 +33,7 @@ public class RedLiquidAnim extends Pane {
     public void animatelq(){
         fade.setToValue(1.0);
         fade.play();
-        tt.setByY(300);
+        tt.setByY(280);
         tt.setCycleCount(4);
         tt.play();
         tt.setOnFinished(e -> {

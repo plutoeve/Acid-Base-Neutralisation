@@ -27,6 +27,7 @@ public class BlueLiquidAnim extends Pane {
     public BlueLiquidAnim() throws FileNotFoundException{
 
         super();
+
         blue.setImage(image);
         blue.setFitWidth(20);
         blue.setFitHeight(30);
@@ -37,7 +38,7 @@ public class BlueLiquidAnim extends Pane {
     public void animatelq(){
         fade.setToValue(1.0);
         fade.play();
-        tt.setByY(300);
+        tt.setByY(280);
         tt.setCycleCount(4);
         tt.play();
         tt.setOnFinished(e -> {

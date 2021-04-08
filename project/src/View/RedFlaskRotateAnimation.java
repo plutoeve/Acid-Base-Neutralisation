@@ -16,7 +16,7 @@ public class RedFlaskRotateAnimation extends Pane {
     public RedFlaskRotateAnimation() throws FileNotFoundException {
         super();
         this.getChildren().addAll(flask);
-        Animations.movePivot(flask, 100,40);
+        Animations.movePivot(flask, 80,40);
     }
 
     public void animate(){
@@ -31,7 +31,7 @@ public class RedFlaskRotateAnimation extends Pane {
     public void animateDroplet() throws FileNotFoundException {
         RedLiquidAnim redlq = new RedLiquidAnim();
         this.getChildren().add(redlq);
-        redlq.relocate(160,-350);
+        redlq.relocate(150,-350);
         redlq.animatelq();
 
 

@@ -17,7 +17,7 @@ public class BlueFlaskRotateAnimation extends Pane {
         super();
         this.getChildren().add(flask);
 
-        Animations.movePivot(flask, 50, 10);
+        Animations.movePivot(flask, 40, 30);
     }
 
     public void animate(){
@@ -31,7 +31,7 @@ public class BlueFlaskRotateAnimation extends Pane {
     public void animateDroplet() throws FileNotFoundException {
         BlueLiquidAnim bluelq = new BlueLiquidAnim();
         this.getChildren().add(bluelq);
-        bluelq.relocate(290,-350);
+        bluelq.relocate(250,-350);
         bluelq.animatelq();
 
 

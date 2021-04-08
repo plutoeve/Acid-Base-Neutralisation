@@ -1,6 +1,8 @@
 package Controller;
 import View.*;
 import Model.*;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -13,6 +15,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
@@ -146,7 +149,21 @@ public class ReactionController {
                 }
 
 
+                try {
+                    simulationView.startButton.setDisable(true);
+
+                    final Timeline animation = new Timeline(
+                            new KeyFrame(Duration.seconds(7),
+                                    actionEvent -> simulationView.startButton.setDisable(false)));
+
+                    animation.play();
+                }catch (Exception exc){
+                    exc.printStackTrace();
+                }
+
             }
+
+
         };
 
 
@@ -306,12 +323,15 @@ public class ReactionController {
         Scene scene = new Scene(output);
 
         Stage outputStage = new Stage();
+
         outputStage.initModality(Modality.APPLICATION_MODAL);
         outputStage.setScene(scene);
-        outputStage.setTitle("output");
+        outputStage.setTitle("Output");
         outputStage.show();
 
+
     }
+
     public void clear(){
         acidVolume = null;
         acidConcentration = null;
@@ -323,6 +343,8 @@ public class ReactionController {
         baseAllEmpty = false;
         acidAllEmpty = false;
     }
+
+
 }
 
 

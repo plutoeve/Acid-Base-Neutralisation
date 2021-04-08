@@ -24,7 +24,7 @@ public class Animations {
 
 
 
-        blueAnim.getFlask().setLayoutX(300);
+        blueAnim.getFlask().setLayoutX(290);
         redAnim.getFlask().setLayoutX(10);
 
         blueAnim.getFlask().setLayoutY(-400);
