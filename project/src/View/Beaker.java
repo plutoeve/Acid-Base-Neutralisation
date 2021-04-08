@@ -34,8 +34,8 @@ public class Beaker extends BorderPane {
         fullBeakerImageView.setFitHeight(170);
         fullBeakerImageView.setPreserveRatio(false);
 
-        fullBeakerImageView.setX(150);
-        fullBeakerImageView.setY(-180);
+        fullBeakerImageView.setX(125);
+        fullBeakerImageView.setY(-200);
 
         fullBeakerImageView.setOpacity(0);
 
@@ -45,8 +45,8 @@ public class Beaker extends BorderPane {
         emptyBeakerImageView.setFitHeight(170);
         emptyBeakerImageView.setPreserveRatio(false);
 
-        emptyBeakerImageView.setX(150);
-        emptyBeakerImageView.setY(-180);
+        emptyBeakerImageView.setX(125);
+        emptyBeakerImageView.setY(-200);
 
         this.getChildren().addAll(emptyBeakerImageView,fullBeakerImageView);
     }

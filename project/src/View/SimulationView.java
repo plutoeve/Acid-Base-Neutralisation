@@ -12,7 +12,7 @@ import javafx.scene.layout.VBox;
 import java.io.FileNotFoundException;
 
 public class SimulationView {
-    //Animations animations = new Animations();
+
     Scene simulationScene;
     public static Animations animation;
     public static GridPane controlPane = new GridPane();
@@ -56,7 +56,7 @@ public class SimulationView {
         buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, startButton);
 
 
-       // controlPane.getChildren().add(animations.pane);
+
         animation = new Animations();
         GridPane animationPane = animation.pane;
         controlPane.add(animationPane, 10,22);

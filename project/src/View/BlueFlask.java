@@ -18,8 +18,8 @@ public class BlueFlask extends BorderPane {
 
         imageView.setImage(image);
 
-        imageView.setFitWidth(130);
-        imageView.setFitHeight(160);
+        imageView.setFitWidth(105);
+        imageView.setFitHeight(130);
         imageView.setPreserveRatio(false);
       //  liquid.animatelq();
 
