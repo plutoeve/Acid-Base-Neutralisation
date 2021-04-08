@@ -1,4 +1,5 @@
 package Controller;
+import Acid_Base_Neutralisation.Main;
 import View.*;
 import Model.*;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
 import java.text.DecimalFormat;
@@ -131,6 +133,8 @@ public class ReactionController {
             if(!error.isEmpty()) {
                 displayError(error);}
             else {
+                Main.water.seek(Duration.ZERO);
+                Main.water.play();
                 displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
             }
 
