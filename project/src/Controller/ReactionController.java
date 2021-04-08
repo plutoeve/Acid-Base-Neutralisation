@@ -1,4 +1,5 @@
 package Controller;
+import Acid_Base_Neutralisation.Main;
 import View.*;
 import Model.*;
 import javafx.animation.KeyFrame;
@@ -134,6 +135,8 @@ public class ReactionController {
             if(!error.isEmpty()) {
                 displayError(error);}
             else {
+                Main.water.seek(Duration.ZERO);
+                Main.water.play();
                 displayOutput(acidConcentration, baseConcentration, acidVolume, baseVolume, acid, base);
             }
 

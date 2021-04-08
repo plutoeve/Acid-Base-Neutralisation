@@ -7,12 +7,12 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+
 import java.io.FileNotFoundException;
 
 
@@ -23,10 +23,12 @@ public class MainView {
         Button helpButton = new Button("HELP");
         Label label = new Label("Simulation: Acid-Base Neutralisation");
         VBox vbox = new VBox();
-        public static Animations animation;
         SimulationView sv = new SimulationView();
 
-    public MainView() throws FileNotFoundException {
+
+
+
+    public MainView() throws FileNotFoundException{
 
             scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
@@ -59,6 +61,8 @@ public class MainView {
             startButton.setOnAction(start);
 
             helpButton.setOnAction(e->{
+                Main.click.seek(Duration.ZERO);
+                Main.click.play();
                 HelpView hv = new HelpView();
                 Stage helpStage = new Stage();
                 helpStage.setTitle("Help: Formulas, equations, and instructions");
@@ -99,8 +103,11 @@ public class MainView {
         EventHandler start = new EventHandler() {
             @Override
             public void handle(Event event) {
+                  Main.click.seek(Duration.ZERO);
+                  Main.click.play();
+
                   Main.firstStage.setScene(sv.simulationScene);
-                    Main.firstStage.setResizable(true);
+                  Main.firstStage.setResizable(true);
 
                     ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
 
@@ -108,5 +115,6 @@ public class MainView {
 
 
         };
+
     };}
 
