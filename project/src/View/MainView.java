@@ -24,8 +24,9 @@ public class MainView {
         Label label = new Label("Simulation: Acid-Base Neutralisation");
         VBox vbox = new VBox();
         public static Animations animation;
+        SimulationView sv = new SimulationView();
 
-    public MainView() {
+    public MainView() throws FileNotFoundException {
 
             scene = new Scene(pane,1000 , 530);
             Main.firstStage.setScene(scene);
@@ -98,18 +99,14 @@ public class MainView {
         EventHandler start = new EventHandler() {
             @Override
             public void handle(Event event) {
-                SimulationView sv = null;
-                try {
-                    sv = new SimulationView();
-                    Main.firstStage.setScene(sv.simulationScene);
+                  Main.firstStage.setScene(sv.simulationScene);
                     Main.firstStage.setResizable(true);
 
                     ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
 
-            }
+
+
+
         };
-    }
+    };}
 

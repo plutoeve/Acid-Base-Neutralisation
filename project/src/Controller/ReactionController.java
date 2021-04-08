@@ -24,6 +24,7 @@ public class ReactionController {
     boolean wrongInput;
     boolean baseAllEmpty;
     boolean acidAllEmpty;
+    boolean firstTime = true;
     String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
     Double acidConcentration;
     Double acidVolume;
