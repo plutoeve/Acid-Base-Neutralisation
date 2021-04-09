@@ -3,6 +3,10 @@ package View;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,22 +16,24 @@ public class BlueFlask extends BorderPane {
     InputStream stream = new FileInputStream("project/src/Resources/BlueFlask.png");
     Image image = new Image(stream);
     ImageView imageView = new ImageView();
-   // LiquidAnim liquid = new LiquidAnim();
+    Text text = new Text();
+
 
     public BlueFlask() throws FileNotFoundException {
 
         imageView.setImage(image);
-
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 30));
+        text.setLayoutY(160);
         imageView.setFitWidth(105);
         imageView.setFitHeight(130);
         imageView.setPreserveRatio(false);
-      //  liquid.animatelq();
 
-
-        this.getChildren().addAll(imageView);
+        this.getChildren().addAll(imageView,text);
 
 
     }
 
-
+    public void setTxt(String txt){
+        this.text.setText(txt);
+    }
 }

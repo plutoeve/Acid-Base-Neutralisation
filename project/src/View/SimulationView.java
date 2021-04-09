@@ -21,6 +21,9 @@ public class SimulationView {
     public static Animations animation;
     public static GridPane controlPane = new GridPane();
     public static ControlPanelView panelView = new ControlPanelView();
+    public static String userChoiceAcid;
+    public static String userChoiceBase;
+
 
     InputStream imgStream = new FileInputStream("project/src/Resources/Home.png");
     Image img = new Image(imgStream);
@@ -69,6 +72,7 @@ public class SimulationView {
 
 
         animation = new Animations();
+
         GridPane animationPane = animation.pane;
         controlPane.add(animationPane, 10,22);
         controlPane.add(panelView,10,22);
@@ -110,6 +114,7 @@ public class SimulationView {
                         "    -fx-font-size: 12px;\n" +
                         "    -fx-padding: 10 20 10 20;");
     }
+
 
 
 

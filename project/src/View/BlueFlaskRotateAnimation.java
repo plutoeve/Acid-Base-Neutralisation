@@ -13,10 +13,10 @@ public class BlueFlaskRotateAnimation extends Pane {
     //
     public RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
-    public BlueFlaskRotateAnimation() throws FileNotFoundException {
+    public BlueFlaskRotateAnimation(String str) throws FileNotFoundException {
         super();
         this.getChildren().add(flask);
-
+        flask.setTxt(str);
         Animations.movePivot(flask, 40, 30);
     }
 

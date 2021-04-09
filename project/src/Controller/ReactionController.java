@@ -25,11 +25,8 @@ import java.util.concurrent.TimeUnit;
 
 
 public class ReactionController {
-    boolean wrongInput;
-    boolean baseAllEmpty;
-    boolean acidAllEmpty;
-    boolean firstTime = true;
-    String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration;
+    boolean wrongInput, baseAllEmpty, acidAllEmpty;
+    String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration, chosenAcid, chosenBase;
     Double acidConcentration;
     Double acidVolume;
     Double baseConcentration;
@@ -57,8 +54,8 @@ public class ReactionController {
 
             try {
 
-                String chosenAcid = cpv.getAcidBox().getValue().toString();
-                String chosenBase = cpv.getBaseBox().getValue().toString();
+                 chosenAcid = cpv.getAcidBox().getValue().toString();
+                 chosenBase = cpv.getBaseBox().getValue().toString();
                 System.out.println(chosenAcid + chosenBase);
 
                 acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
@@ -142,6 +139,8 @@ public class ReactionController {
 
             if(!wrongInput) {
 
+                SimulationView.animation.blueAnim.flask.setTxt(chosenBase);
+                SimulationView.animation.redAnim.flask.setTxt(chosenAcid);
 
                 SimulationView.animation.animateAll();
                 try {
@@ -334,6 +333,8 @@ public class ReactionController {
 
 
     }
+
+
 
     public void clear(){
         acidVolume = null;
