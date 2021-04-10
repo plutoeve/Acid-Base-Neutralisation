@@ -1,9 +1,9 @@
 package View;
 
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class ControlPanelView extends GridPane {
@@ -14,15 +14,24 @@ public class ControlPanelView extends GridPane {
     TextField concentrationBase = new TextField();
     TextField volumeAcid = new TextField();
     TextField volumeBase = new TextField();
+    ToggleGroup option = new ToggleGroup();
+    ToggleButton gramPerLiter = new ToggleButton("g/L");
+    ToggleButton molPerLiter = new ToggleButton("mol/L");
 
     public ControlPanelView(){
         this.prefHeightProperty().bind(SimulationView.controlPane.prefHeightProperty());
         this.prefWidthProperty().bind(SimulationView.controlPane.prefWidthProperty());
         Label acid = new Label("Acid");
+        acid.setFont(Font.font(15));
         add(acid,0,0);
-        //acid.setStyle();
 
-        Text base = new Text("Base");
+        gramPerLiter.setSelected(true);
+        gramPerLiter.setToggleGroup(option);
+        molPerLiter.setToggleGroup(option);
+        HBox hbox = new HBox(gramPerLiter, molPerLiter);
+
+        Label base = new Label("Base");
+        base.setFont(Font.font(15));
         add(base,1,0);
 
         //list of acids
@@ -58,8 +67,8 @@ public class ControlPanelView extends GridPane {
 
         //if we have time, we can have a switch between g/L and mol/L
 
-        concentrationAcid.setPromptText("acid concentration(mol/L)");
-        concentrationBase.setPromptText("base concentration(mol/L)");
+        concentrationAcid.setPromptText("acid concentration");
+        concentrationBase.setPromptText("base concentration)");
         volumeAcid.setPromptText("Input acid volume(L)");
         volumeBase.setPromptText("Input base volume(L)");
         add(concentrationAcid, 0,2);

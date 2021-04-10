@@ -35,6 +35,7 @@ public class SimulationView {
     Button darkButton = new Button("Dark");
     Button defaultButton = new Button("Default");
     public Button simulationButton = new Button("Start simulating!");
+    boolean isDark;
 
 
     public SimulationView() throws FileNotFoundException {
@@ -56,13 +57,17 @@ public class SimulationView {
 
         defaultButton.setOnAction(e->{
             simulationScene.getStylesheets().remove("View/dark.css");
+            isDark = false;
 
         });
 
 
 
         darkButton.setOnAction(e->{
-            simulationScene.getStylesheets().add("View/dark.css");
+            while(!isDark) {
+                simulationScene.getStylesheets().add("View/dark.css");
+                isDark = true;
+            }
         });
 
 
