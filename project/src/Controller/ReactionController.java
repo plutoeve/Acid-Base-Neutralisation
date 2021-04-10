@@ -26,7 +26,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ReactionController {
     boolean wrongInput, baseAllEmpty, acidAllEmpty;
-    String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration, chosenAcid, chosenBase;
+    String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration, chosenAcid, chosenBase, product;
     Double acidConcentration;
     Double acidVolume;
     Double baseConcentration;
@@ -141,22 +141,23 @@ public class ReactionController {
 
                 SimulationView.animation.blueAnim.flask.setTxt(chosenBase);
                 SimulationView.animation.redAnim.flask.setTxt(chosenAcid);
-
+                SimulationView.animation.beaker.setTxt(product);
                 SimulationView.animation.animateAll();
+                simulationView.simulationButton.setText("Start Again!");
                 try {
                     SimulationView.animation.blueAnim.animateDroplet();
                     SimulationView.animation.redAnim.animateDroplet();
-                } catch (FileNotFoundException e) {
+                } catch (FileNotFoundException | InterruptedException e) {
                     e.printStackTrace();
                 }
 
 
                 try {
-                    simulationView.startButton.setDisable(true);
+                    simulationView.simulationButton.setDisable(true);
 
                     final Timeline animation = new Timeline(
                             new KeyFrame(Duration.seconds(7),
-                                    actionEvent -> simulationView.startButton.setDisable(false)));
+                                    actionEvent -> simulationView.simulationButton.setDisable(false)));
 
                     animation.play();
                 }catch (Exception exc){
@@ -262,7 +263,7 @@ public class ReactionController {
         try{
             for (Double n : values){
                 if(n <= 0){
-                    throw new NegativeInputException("Number should be positive");
+                    throw new NegativeInputException("concentration and/or volume should be positive numbers");
                 }
             }
 
@@ -283,32 +284,34 @@ public class ReactionController {
 
         String acidEmp = am.getEmpiricalFormula();
         String baseEmp = bm.getEmpiricalFormula();
-        Font font = Font.font("Serif", 15);
+        Font font = Font.font("Serif", 18);
         TextFlow output = new TextFlow();
 
         DecimalFormat f = new DecimalFormat("##.00");
 
-        Text t1 = new Text("the acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
+        Text t1 = new Text("\n\nThe acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
         t1.setFill(Color.BLACK);
         t1.setFont(font);
 
         Text t2 = new Text("\nThe concentration of the acid is: " + f.format(acidConcentration)+" mol/L"
                 + "\nThe volume of the acid is: " + f.format(acidVolume)+" L");
-        t2.setFill(Color.BLUEVIOLET);
+        t2.setFill(Color.RED);
         t2.setFont(font);
 
         Text t3 = new Text("\nThe concentration of the base is: " + f.format(baseConcentration)+" mol/L"
                 + "\nThe volume of the base is: " + f.format(baseVolume)+" L");
-        t3.setFill(Color.CYAN);
+        t3.setFill(Color.BLUE);
         t3.setFont(font);
 
-        String str = "\n...Generating equation\nThe chemical equation is: ";
+        String str = "\n...Generating equation\n\nThe chemical equation is: ";
 
         if(baseEmp == "Ca(OH)2"){
             str = str + "2" + acidEmp + " + " + baseEmp + " = " + bm.getPrefix() + am.getSufix()  + " + 2H2O";
+            product = bm.getPrefix() + am.getSufix()  + " + 2H2O";
 
         }else{
             str = str + acidEmp + " + " +baseEmp + " = " + bm.getPrefix() + am.getSufix()  + " + H2O";
+            product = bm.getPrefix() + am.getSufix()  + " + H2O";
         }
         Text t4 = new Text(str);
         t4.setFont(font);
@@ -320,7 +323,6 @@ public class ReactionController {
         ObservableList list = output.getChildren();
         //Adding cylinder to the pane
         list.addAll(t1, t2, t3, t4);
-        output.setStyle("");
 
         Scene scene = new Scene(output);
 

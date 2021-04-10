@@ -2,11 +2,14 @@ package View;
 
 
 import Acid_Base_Neutralisation.Main;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -21,8 +24,6 @@ public class SimulationView {
     public static Animations animation;
     public static GridPane controlPane = new GridPane();
     public static ControlPanelView panelView = new ControlPanelView();
-    public static String userChoiceAcid;
-    public static String userChoiceBase;
 
 
     InputStream imgStream = new FileInputStream("project/src/Resources/Home.png");
@@ -33,7 +34,7 @@ public class SimulationView {
     Button homeButton = new Button("Home");
     Button darkButton = new Button("Dark");
     Button defaultButton = new Button("Default");
-    public Button startButton = new Button("Start simulating!");
+    public Button simulationButton = new Button("Start simulating!");
 
 
     public SimulationView() throws FileNotFoundException {
@@ -67,7 +68,8 @@ public class SimulationView {
 
 
 
-        buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, startButton);
+
+        buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, simulationButton);
 
 
 
@@ -119,7 +121,7 @@ public class SimulationView {
 
 
     public Button getStartButton() {
-        return startButton;
+        return simulationButton;
     }
 
     public GridPane getControlPane() {

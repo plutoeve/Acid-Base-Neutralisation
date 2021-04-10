@@ -24,10 +24,9 @@ public class BlueLiquidAnim extends Pane {
     public TranslateTransition tt2 = new TranslateTransition(Duration.millis(1),blue);
     public FadeTransition fade = new FadeTransition(Duration.millis(1),blue);
 
-    public BlueLiquidAnim() throws FileNotFoundException{
+    public BlueLiquidAnim() throws FileNotFoundException, InterruptedException {
 
         super();
-
         blue.setImage(image);
         blue.setFitWidth(20);
         blue.setFitHeight(30);

@@ -7,6 +7,10 @@ import javafx.animation.Timeline;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
@@ -18,7 +22,7 @@ public class Beaker extends BorderPane {
     InputStream fullBeakerStream = new FileInputStream("project/src/Resources/Beaker.png");
     Image fullBeakerImage = new Image(fullBeakerStream);
     ImageView fullBeakerImageView= new ImageView();
-
+    Text text = new Text();
     InputStream emptyBeakerStream = new FileInputStream("project/src/Resources/EmptyBeaker.png");
     Image emptyBeakerImage = new Image(emptyBeakerStream);
     ImageView emptyBeakerImageView = new ImageView();
@@ -29,6 +33,10 @@ public class Beaker extends BorderPane {
 
 
         fullBeakerImageView.setImage(fullBeakerImage);
+
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 15));
+        text.setLayoutY(-50);
+        text.setLayoutX(150);
 
         fullBeakerImageView.setFitWidth(170);
         fullBeakerImageView.setFitHeight(170);
@@ -48,7 +56,7 @@ public class Beaker extends BorderPane {
         emptyBeakerImageView.setX(125);
         emptyBeakerImageView.setY(-200);
 
-        this.getChildren().addAll(emptyBeakerImageView,fullBeakerImageView);
+        this.getChildren().addAll(emptyBeakerImageView,fullBeakerImageView,text);
     }
 
     public void animate(){
@@ -62,8 +70,17 @@ public class Beaker extends BorderPane {
         ft2.setToValue(1.0);
         ft2.play();
 
+        FadeTransition ft3 = new FadeTransition(Duration.millis(8000), text);
+        ft3.setFromValue(0);
+        ft3.setToValue(1.0);
+        ft3.play();
 
 
+
+    }
+
+    public void setTxt(String txt){
+        this.text.setText(txt);
     }
 
 }

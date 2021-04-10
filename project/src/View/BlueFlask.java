@@ -22,7 +22,7 @@ public class BlueFlask extends BorderPane {
     public BlueFlask() throws FileNotFoundException {
 
         imageView.setImage(image);
-        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 30));
+        text.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 18));
         text.setLayoutY(160);
         imageView.setFitWidth(105);
         imageView.setFitHeight(130);

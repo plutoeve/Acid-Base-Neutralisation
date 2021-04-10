@@ -1,6 +1,7 @@
 package View;
 
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -17,8 +18,9 @@ public class ControlPanelView extends GridPane {
     public ControlPanelView(){
         this.prefHeightProperty().bind(SimulationView.controlPane.prefHeightProperty());
         this.prefWidthProperty().bind(SimulationView.controlPane.prefWidthProperty());
-        Text acid = new Text("Acid");
+        Label acid = new Label("Acid");
         add(acid,0,0);
+        //acid.setStyle();
 
         Text base = new Text("Base");
         add(base,1,0);
@@ -58,15 +60,15 @@ public class ControlPanelView extends GridPane {
 
         concentrationAcid.setPromptText("acid concentration(mol/L)");
         concentrationBase.setPromptText("base concentration(mol/L)");
-        volumeAcid.setPromptText("Input acid volume");
-        volumeBase.setPromptText("Input base volume");
+        volumeAcid.setPromptText("Input acid volume(L)");
+        volumeBase.setPromptText("Input base volume(L)");
         add(concentrationAcid, 0,2);
         add(concentrationBase,1,2);
         add(volumeAcid, 0, 3);
         add(volumeBase, 1,3);
 
-        this.setHgap(30);
-        this.setVgap(30);
+        this.setHgap(40);
+        this.setVgap(40);
     }
 
     public ComboBox getAcidBox() {

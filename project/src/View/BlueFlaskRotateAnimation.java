@@ -28,7 +28,7 @@ public class BlueFlaskRotateAnimation extends Pane {
         rt.play();
 
     }
-    public void animateDroplet() throws FileNotFoundException {
+    public void animateDroplet() throws FileNotFoundException, InterruptedException {
         BlueLiquidAnim bluelq = new BlueLiquidAnim();
         this.getChildren().add(bluelq);
         bluelq.relocate(250,-350);
