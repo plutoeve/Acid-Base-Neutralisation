@@ -223,7 +223,7 @@ public class ReactionController {
         final Stage problem = new Stage();
         problem.initModality(Modality.APPLICATION_MODAL);
         TextFlow ErrorBox = new TextFlow();
-        ErrorBox.setStyle("-fx-background-color: #f4a460");
+        ErrorBox.setStyle("-fx-background-color: #F28484");
         Text text = new Text(s);
         text.setStyle("-fx-font-size: 20; -fx-font-weight: bold; -fx-font-family: serif; -fx-padding: 15px;\n" +
                 "    -fx-border-insets: 15px;\n" +

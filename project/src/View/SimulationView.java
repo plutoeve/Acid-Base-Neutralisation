@@ -63,7 +63,7 @@ public class SimulationView {
 
 
         defaultButton.setOnAction(e->{
-            simulationScene.getStylesheets().remove("View/dark.css");
+            simulationScene.getStylesheets().remove("View/light.css");
             isDark = false;
 
         });
