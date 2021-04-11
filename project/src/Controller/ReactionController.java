@@ -61,10 +61,7 @@ public class ReactionController {
                 acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
                 base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
 
-                if(simulationView.gramPerLiter.isSelected()){
-                    acidConcentration = Calculations.convertConcentration(acidConcentration, acid);
-                    baseConcentration = Calculations.convertConcentration(baseConcentration, base);
-                }
+
 
             }catch(NullPointerException npe){
                 error = error + "\nThe acid and/or the base is not selected\n please try again";
@@ -75,8 +72,16 @@ public class ReactionController {
                 wrongInput = true;
             }
 
+
             if(wrongInput == true){}
             else{
+                if(simulationView.gramPerLiter.isSelected()){
+                    if(!AcidConcentration.isEmpty())
+                        acidConcentration = Calculations.convertConcentration(acidConcentration, acid);
+                    if(!BaseConcentration.isEmpty())
+                        baseConcentration = Calculations.convertConcentration(baseConcentration, base);
+
+                }
             switch(choice) {
 
                 case 1: error = "please input more than 1 parameter for it to work";
@@ -260,7 +265,7 @@ public class ReactionController {
 
             }catch(NumberFormatException numberFormatException){
             error = "Please put numbers:))";
-            displayError(error);
+
             wrongInput = true;
             }
 
@@ -274,7 +279,6 @@ public class ReactionController {
             }
             catch (NegativeInputException negativeInputException) {
             error = "Input anything bigger than 0";
-            displayError(error);
             wrongInput = true;
             }
             catch (Exception x){
