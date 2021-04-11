@@ -12,11 +12,10 @@ public class RedFlaskRotateAnimation extends Pane {
     public final RedFlask flask = new RedFlask();
     public RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
-    public RedFlaskRotateAnimation(String str) throws FileNotFoundException {
+    public RedFlaskRotateAnimation() throws FileNotFoundException {
         super();
         this.getChildren().addAll(flask);
         Animations.movePivot(flask, 80,40);
-        flask.setTxt(str);
     }
 
     public void animate(){

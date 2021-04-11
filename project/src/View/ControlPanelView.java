@@ -10,12 +10,12 @@ import javafx.scene.text.Text;
 
 public class ControlPanelView extends GridPane {
 
-    public static ComboBox AcidBox = new ComboBox();
-    public static ComboBox BaseBox = new ComboBox();
-    TextField concentrationAcid = new TextField();
-    TextField concentrationBase = new TextField();
-    TextField volumeAcid = new TextField();
-    TextField volumeBase = new TextField();
+    public ComboBox AcidBox = new ComboBox();
+    public ComboBox BaseBox = new ComboBox();
+    public TextField concentrationAcid = new TextField();
+    public TextField concentrationBase = new TextField();
+    public TextField volumeAcid = new TextField();
+    public TextField volumeBase = new TextField();
 
     public ControlPanelView(){
         this.prefHeightProperty().bind(SimulationView.controlPane.prefHeightProperty());
@@ -56,7 +56,6 @@ public class ControlPanelView extends GridPane {
 
         BaseBox.setPromptText("Pick Base");
 
-        //add combo to pane
         add(AcidBox,0,1);
         add(BaseBox,1,1);
 

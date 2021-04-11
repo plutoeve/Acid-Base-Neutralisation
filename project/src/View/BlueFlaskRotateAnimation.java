@@ -1,6 +1,5 @@
 package View;
 
-import javafx.animation.Animation;
 import javafx.animation.RotateTransition;
 import javafx.scene.layout.Pane;
 import javafx.util.Duration;
@@ -10,13 +9,11 @@ import java.io.FileNotFoundException;
 public class BlueFlaskRotateAnimation extends Pane {
 
     public BlueFlask flask = new BlueFlask();
-    //
     public RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
-    public BlueFlaskRotateAnimation(String str) throws FileNotFoundException {
+    public BlueFlaskRotateAnimation() throws FileNotFoundException {
         super();
         this.getChildren().add(flask);
-        flask.setTxt(str);
         Animations.movePivot(flask, 40, 30);
     }
 

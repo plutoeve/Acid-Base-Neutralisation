@@ -35,8 +35,7 @@ public class SimulationView {
 
     VBox buttonBox = new VBox();
     Button homeButton = new Button("Home");
-    Button darkButton = new Button("Dark");
-    Button defaultButton = new Button("Default");
+    Button darkButton = new Button("Dark/Light");
     public Button simulationButton = new Button("Start simulating!");
     boolean isDark;
 
@@ -62,18 +61,16 @@ public class SimulationView {
 
 
 
-        defaultButton.setOnAction(e->{
-            simulationScene.getStylesheets().remove("View/light.css");
-            isDark = false;
-
-        });
 
 
 
         darkButton.setOnAction(e->{
-            while(!isDark) {
+            if(!isDark) {
                 simulationScene.getStylesheets().add("View/dark.css");
                 isDark = true;
+            }else{
+                simulationScene.getStylesheets().remove("View/dark.css");
+                isDark = false;
             }
         });
 
@@ -85,7 +82,7 @@ public class SimulationView {
 
 
 
-        buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, simulationButton,hbox);
+        buttonBox.getChildren().addAll(homeButton, darkButton, simulationButton,hbox);
 
 
 

@@ -13,11 +13,9 @@ import javafx.util.Duration;
 import java.io.FileNotFoundException;
 
 public class Animations {
-    public String ac;
-    public String bs;
     public GridPane pane =  new GridPane();
-    public BlueFlaskRotateAnimation blueAnim = new BlueFlaskRotateAnimation(bs);
-    public RedFlaskRotateAnimation redAnim = new RedFlaskRotateAnimation(ac);
+    public BlueFlaskRotateAnimation blueAnim = new BlueFlaskRotateAnimation();
+    public RedFlaskRotateAnimation redAnim = new RedFlaskRotateAnimation();
     public Beaker beaker = new Beaker();
 
     public Animations() throws FileNotFoundException {
@@ -28,8 +26,6 @@ public class Animations {
 
         blueAnim.getFlask().setLayoutY(-400);
         redAnim.getFlask().setLayoutY(-400);
-
-
 
     }
     public static void movePivot(Node node, double x, double y){
