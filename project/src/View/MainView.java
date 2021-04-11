@@ -17,13 +17,13 @@ import java.io.FileNotFoundException;
 
 
 public class MainView {
-        GridPane pane = new GridPane();
+        public GridPane pane = new GridPane();
         public static Scene scene;
-        Button startButton = new Button("Start");
-        Button helpButton = new Button("Help");
-        Label label = new Label("Acid-Base Neutralisation Simulator V1.1.0");
-        VBox vbox = new VBox();
-        SimulationView sv = new SimulationView();
+        public Button startButton = new Button("Start");
+        public Button helpButton = new Button("Help");
+        public Label label = new Label("Acid-Base Neutralisation Simulator V1.1.0");
+        public VBox vbox = new VBox();
+        public SimulationView sv = new SimulationView();
 
 
 

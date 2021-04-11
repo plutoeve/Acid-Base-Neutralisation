@@ -13,10 +13,10 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class RedFlask extends BorderPane {
-    InputStream stream = new FileInputStream("project/src/Resources/RedFlask.png");
-    Image image = new Image(stream);
-    ImageView imageView = new ImageView();
-    Text text = new Text();
+    private InputStream stream = new FileInputStream("project/src/Resources/RedFlask.png");
+    private Image image = new Image(stream);
+    public ImageView imageView = new ImageView();
+    public Text text = new Text();
 
     public RedFlask() throws FileNotFoundException {
 
