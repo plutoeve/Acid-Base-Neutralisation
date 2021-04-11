@@ -17,11 +17,4 @@ public class BaseModel extends MoleculeModel{
         return prefix.get();
     }
 
-    public SimpleStringProperty prefixProperty() {
-        return prefix;
-    }
-
-    public void setPrefix(String prefix) {
-        this.prefix.set(prefix);
-    }
 }

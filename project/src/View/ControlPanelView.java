@@ -1,5 +1,7 @@
 package View;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -8,15 +10,12 @@ import javafx.scene.text.Text;
 
 public class ControlPanelView extends GridPane {
 
-    ComboBox AcidBox = new ComboBox();
-    ComboBox BaseBox = new ComboBox();
+    public static ComboBox AcidBox = new ComboBox();
+    public static ComboBox BaseBox = new ComboBox();
     TextField concentrationAcid = new TextField();
     TextField concentrationBase = new TextField();
     TextField volumeAcid = new TextField();
     TextField volumeBase = new TextField();
-    ToggleGroup option = new ToggleGroup();
-    ToggleButton gramPerLiter = new ToggleButton("g/L");
-    ToggleButton molPerLiter = new ToggleButton("mol/L");
 
     public ControlPanelView(){
         this.prefHeightProperty().bind(SimulationView.controlPane.prefHeightProperty());
@@ -25,10 +24,7 @@ public class ControlPanelView extends GridPane {
         acid.setFont(Font.font(15));
         add(acid,0,0);
 
-        gramPerLiter.setSelected(true);
-        gramPerLiter.setToggleGroup(option);
-        molPerLiter.setToggleGroup(option);
-        HBox hbox = new HBox(gramPerLiter, molPerLiter);
+
 
         Label base = new Label("Base");
         base.setFont(Font.font(15));
@@ -61,14 +57,18 @@ public class ControlPanelView extends GridPane {
         BaseBox.setPromptText("Pick Base");
 
         //add combo to pane
-
         add(AcidBox,0,1);
         add(BaseBox,1,1);
 
-        //if we have time, we can have a switch between g/L and mol/L
+        EventHandler combo = new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
 
-        concentrationAcid.setPromptText("acid concentration");
-        concentrationBase.setPromptText("base concentration)");
+            }
+        };
+
+        concentrationAcid.setPromptText("Input acid concentration");
+        concentrationBase.setPromptText("Input base concentration");
         volumeAcid.setPromptText("Input acid volume(L)");
         volumeBase.setPromptText("Input base volume(L)");
         add(concentrationAcid, 0,2);
@@ -104,5 +104,4 @@ public class ControlPanelView extends GridPane {
         return volumeBase;
     }
 
-    //create a void function that checks the fields --Gevorg
 }

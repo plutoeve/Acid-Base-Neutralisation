@@ -3,7 +3,8 @@ package Model;
 import java.util.HashMap;
 
 public class MoleculeHolder {
-    static HashMap<String, MoleculeModel> hashMap = new HashMap<String, MoleculeModel>();
+
+    public static HashMap<String, MoleculeModel> hashMap = new HashMap<String, MoleculeModel>();
 
 
     public MoleculeHolder() {
@@ -47,10 +48,6 @@ public class MoleculeHolder {
 
     public HashMap<String, MoleculeModel> getHashMap() {
         return hashMap;
-    }
-
-    public void setHashMap(HashMap<String, MoleculeModel> hashMap) {
-        this.hashMap = hashMap;
     }
 
 

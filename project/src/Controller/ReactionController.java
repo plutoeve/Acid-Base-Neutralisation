@@ -48,9 +48,9 @@ public class ReactionController {
             AcidVolume = cpv.getVolumeAcid().getText();
             BaseConcentration = cpv.getConcentrationBase().getText();
             AcidConcentration = cpv.getConcentrationAcid().getText();
-            System.out.println(BaseConcentration+" "+BaseVolume+" "+AcidConcentration+" "+AcidVolume);
             int choice = PickCase(cpv);
             checkErrorsInput();
+
 
             try {
 
@@ -61,7 +61,10 @@ public class ReactionController {
                 acid = (AcidModel) moleculeHolder.getHashMap().get(chosenAcid);
                 base = (BaseModel) moleculeHolder.getHashMap().get(chosenBase);
 
-
+                if(simulationView.gramPerLiter.isSelected()){
+                    acidConcentration = Calculations.convertConcentration(acidConcentration, acid);
+                    baseConcentration = Calculations.convertConcentration(baseConcentration, base);
+                }
 
             }catch(NullPointerException npe){
                 error = error + "\nThe acid and/or the base is not selected\n please try again";
@@ -254,6 +257,7 @@ public class ReactionController {
                 values.add(baseVolume);
             }
 
+
             }catch(NumberFormatException numberFormatException){
             error = "Please put numbers:))";
             displayError(error);
@@ -287,7 +291,7 @@ public class ReactionController {
         Font font = Font.font("Serif", 18);
         TextFlow output = new TextFlow();
 
-        DecimalFormat f = new DecimalFormat("##.00");
+        DecimalFormat f = new DecimalFormat("##0.00");
 
         Text t1 = new Text("\n\nThe acid that you chose is "+ acidEmp + "\nthe base that you chose is " + baseEmp);
         t1.setFill(Color.BLACK);
@@ -319,8 +323,10 @@ public class ReactionController {
         output.setPrefSize(600, 300);
 
         output.setLineSpacing(5.0);
+
         //Retrieving the observable list of the TextFlow Pane
         ObservableList list = output.getChildren();
+
         //Adding cylinder to the pane
         list.addAll(t1, t2, t3, t4);
 

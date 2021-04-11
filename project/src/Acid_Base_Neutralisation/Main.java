@@ -5,8 +5,6 @@ import javafx.application.Application;
 import javafx.scene.media.*;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
 
 public class Main extends Application{
 

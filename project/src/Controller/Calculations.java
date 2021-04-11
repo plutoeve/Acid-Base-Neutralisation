@@ -1,5 +1,8 @@
 package Controller;
 
+import Model.MoleculeHolder;
+import Model.MoleculeModel;
+
 public class Calculations {
 
     //balance equation
@@ -15,6 +18,11 @@ public class Calculations {
     //if there is 3 input parameters
     static double calculateFourth(double c1, double v1, double value2){
         return (c1*v1/value2);
+    }
+
+    //converting gram to moles
+    static double convertConcentration(double concentrationInGrams, MoleculeModel molecule){
+        return concentrationInGrams/molecule.getQuantity();
     }
 
 

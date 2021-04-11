@@ -3,6 +3,7 @@ package Model;
 import javafx.beans.property.SimpleStringProperty;
 
 public class AcidModel extends MoleculeModel{
+
     private SimpleStringProperty sufix;
 
     public AcidModel(String empiricalFormula,String sufix, double molarMass) {
@@ -15,11 +16,4 @@ public class AcidModel extends MoleculeModel{
         return sufix.get();
     }
 
-    public SimpleStringProperty sufixProperty() {
-        return sufix;
-    }
-
-    public void setSufix(String sufix) {
-        this.sufix.set(sufix);
-    }
 }

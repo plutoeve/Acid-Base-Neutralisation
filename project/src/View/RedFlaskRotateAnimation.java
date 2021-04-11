@@ -10,7 +10,6 @@ import java.io.FileNotFoundException;
 
 public class RedFlaskRotateAnimation extends Pane {
     public final RedFlask flask = new RedFlask();
-
     public RotateTransition rt = new RotateTransition(Duration.millis(3000), flask);
 
     public RedFlaskRotateAnimation(String str) throws FileNotFoundException {

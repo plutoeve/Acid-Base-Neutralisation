@@ -6,11 +6,14 @@ import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
@@ -36,6 +39,10 @@ public class SimulationView {
     Button defaultButton = new Button("Default");
     public Button simulationButton = new Button("Start simulating!");
     boolean isDark;
+
+    ToggleGroup option = new ToggleGroup();
+    public ToggleButton gramPerLiter = new ToggleButton("g/L");
+    public ToggleButton molPerLiter = new ToggleButton("mol/L");
 
 
     public SimulationView() throws FileNotFoundException {
@@ -70,11 +77,15 @@ public class SimulationView {
             }
         });
 
+        gramPerLiter.setSelected(true);
+        gramPerLiter.setToggleGroup(option);
+        molPerLiter.setToggleGroup(option);
+        HBox hbox = new HBox(gramPerLiter, molPerLiter);
+        hbox.setSpacing(15);
 
 
 
-
-        buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, simulationButton);
+        buttonBox.getChildren().addAll(homeButton, darkButton, defaultButton, simulationButton,hbox);
 
 
 
@@ -94,34 +105,6 @@ public class SimulationView {
 
 
     }
-
-    public void setDefaultButtonColor(Button defaultButtonColor){
-        defaultButtonColor.setStyle(" -fx-background-color: \n" +
-                "        #c3c4c4,\n" +
-                "        linear-gradient(#d6d6d6 50%, white 100%),\n" +
-                "        radial-gradient(center 50% -40%, radius 200%, #e6e6e6 45%, rgba(230,230,230,0) 50%);\n" +
-                "    -fx-background-radius: 30;\n" +
-                "    -fx-background-insets: 0,1,1;\n" +
-                "    -fx-text-fill: black;\n" +
-                "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 3, 0.0 , 0 , 1 );");
-    }
-
-    public void setDarkButtonColor(Button darkButtonColor){
-        darkButtonColor.setStyle(" -fx-background-color: \n" +
-                        "        #090a0c,\n" +
-                        "        linear-gradient(#38424b 0%, #1f2429 20%, #191d22 100%),\n" +
-                        "        linear-gradient(#20262b, #191d22),\n" +
-                        "        radial-gradient(center 50% 0%, radius 100%, rgba(114,131,148,0.9), rgba(255,255,255,0));\n" +
-                        "    -fx-background-radius: 5,4,3,5;\n" +
-                        "    -fx-background-insets: 0,1,2,0;\n" +
-                        "    -fx-text-fill: white;\n" +
-                        "    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );\n" +
-                        "    -fx-font-family: \"Arial\";\n" +
-                        "    -fx-text-fill: linear-gradient(white, #d0d0d0);\n" +
-                        "    -fx-font-size: 12px;\n" +
-                        "    -fx-padding: 10 20 10 20;");
-    }
-
 
 
 
