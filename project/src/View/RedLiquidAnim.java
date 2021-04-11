@@ -13,9 +13,9 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class RedLiquidAnim extends Pane {
-    InputStream stream = new FileInputStream("project/src/Resources/Red-Drop.png");
-    Image image = new Image(stream);
-    ImageView red = new ImageView();
+    private InputStream stream = new FileInputStream("project/src/Resources/Red-Drop.png");
+    private Image image = new Image(stream);
+    public ImageView red = new ImageView();
     public TranslateTransition tt = new TranslateTransition(Duration.millis(1500),red);
     public TranslateTransition tt2 = new TranslateTransition(Duration.millis(1),red);
     public FadeTransition fade = new FadeTransition(Duration.millis(1),red);

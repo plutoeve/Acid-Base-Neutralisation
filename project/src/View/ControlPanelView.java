@@ -12,10 +12,10 @@ public class ControlPanelView extends GridPane {
 
     public static ComboBox AcidBox = new ComboBox();
     public static ComboBox BaseBox = new ComboBox();
-    TextField concentrationAcid = new TextField();
-    TextField concentrationBase = new TextField();
-    TextField volumeAcid = new TextField();
-    TextField volumeBase = new TextField();
+    public TextField concentrationAcid = new TextField();
+    public TextField concentrationBase = new TextField();
+    public TextField volumeAcid = new TextField();
+    public TextField volumeBase = new TextField();
 
     public ControlPanelView(){
         this.prefHeightProperty().bind(SimulationView.controlPane.prefHeightProperty());

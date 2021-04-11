@@ -25,14 +25,14 @@ import java.util.concurrent.TimeUnit;
 
 
 public class ReactionController {
-    boolean wrongInput, baseAllEmpty, acidAllEmpty;
-    String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration, chosenAcid, chosenBase, product;
-    Double acidConcentration;
-    Double acidVolume;
-    Double baseConcentration;
-    Double baseVolume;
-    AcidModel acid;
-    BaseModel base;
+    private boolean wrongInput, baseAllEmpty, acidAllEmpty;
+    private String error, BaseVolume, AcidVolume, BaseConcentration, AcidConcentration, chosenAcid, chosenBase, product;
+    private Double acidConcentration;
+    private Double acidVolume;
+    private Double baseConcentration;
+    private Double baseVolume;
+    private AcidModel acid;
+    private BaseModel base;
 
     public ReactionController(MoleculeHolder moleculeHolder, SimulationView simulationView) {
 
