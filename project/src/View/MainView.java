@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -72,7 +73,10 @@ public class MainView {
                 Stage helpStage = new Stage();
                 helpStage.setTitle("Help: Formulas, equations, and instructions");
                 helpStage.setScene(new Scene(hv, 1332,700));
+                helpStage.initModality(Modality.APPLICATION_MODAL);
+                helpStage.setResizable(false);
                 helpStage.show();
+
             });
 
 
@@ -105,7 +109,7 @@ public class MainView {
                   Main.click.play();
 
                   Main.firstStage.setScene(sv.simulationScene);
-                  Main.firstStage.setResizable(true);
+                  Main.firstStage.setResizable(false);
 
                     ReactionController rc = new ReactionController(new MoleculeHolder(), sv);
 

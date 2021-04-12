@@ -226,6 +226,7 @@ public class ReactionController {
     public void displayError(String s){
         wrongInput = true;
         final Stage problem = new Stage();
+        problem.setResizable(false);
         problem.initModality(Modality.APPLICATION_MODAL);
         TextFlow ErrorBox = new TextFlow();
         ErrorBox.setStyle("-fx-background-color: #F28484");
@@ -347,6 +348,7 @@ public class ReactionController {
         outputStage.initModality(Modality.APPLICATION_MODAL);
         outputStage.setScene(scene);
         outputStage.setTitle("Output");
+        outputStage.setResizable(false);
         outputStage.show();
 
 

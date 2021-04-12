@@ -2,6 +2,7 @@ package Acid_Base_Neutralisation;
 
 import View.MainView;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.media.*;
 import javafx.stage.Stage;
 
@@ -24,6 +25,7 @@ public class Main extends Application{
         MainView.scene.getStylesheets().addAll(this.getClass().getResource("CSSBackground.css").toExternalForm());
         
         stage.show();
+
     }
     public static void main(String[] arg){
         launch(arg);
