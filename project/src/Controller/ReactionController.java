@@ -335,6 +335,12 @@ public class ReactionController {
         list.addAll(t1, t2, t3, t4);
 
         Scene scene = new Scene(output);
+        if(SimulationView.isDark){
+            t1.setFill(Color.WHITE);
+            t4.setFill(Color.WHITE);
+            output.setStyle("-fx-background-color:black;");
+
+        }
 
         Stage outputStage = new Stage();
 

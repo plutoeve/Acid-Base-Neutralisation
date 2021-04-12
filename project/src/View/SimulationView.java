@@ -37,7 +37,7 @@ public class SimulationView {
     Button homeButton = new Button("Home");
     Button darkButton = new Button("Dark/Light");
     public Button simulationButton = new Button("Start simulating!");
-    boolean isDark;
+    public static boolean isDark;
 
     ToggleGroup option = new ToggleGroup();
     public ToggleButton gramPerLiter = new ToggleButton("g/L");
@@ -68,9 +68,19 @@ public class SimulationView {
             if(!isDark) {
                 simulationScene.getStylesheets().add("View/dark.css");
                 isDark = true;
+                try {
+                    animation.toDark();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }else{
                 simulationScene.getStylesheets().remove("View/dark.css");
                 isDark = false;
+                try {
+                    animation.toLight();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
             }
         });
 
