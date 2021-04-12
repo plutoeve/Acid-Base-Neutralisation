@@ -63,10 +63,15 @@ public class MainView {
             helpButton.setOnAction(e->{
                 Main.click.seek(Duration.ZERO);
                 Main.click.play();
-                HelpView hv = new HelpView();
+                HelpView hv = null;
+                try {
+                    hv = new HelpView();
+                } catch (FileNotFoundException fileNotFoundException) {
+                    fileNotFoundException.printStackTrace();
+                }
                 Stage helpStage = new Stage();
                 helpStage.setTitle("Help: Formulas, equations, and instructions");
-                helpStage.setScene(new Scene(hv, 1000,700));
+                helpStage.setScene(new Scene(hv, 1332,700));
                 helpStage.show();
             });
 
