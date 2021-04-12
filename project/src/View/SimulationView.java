@@ -37,7 +37,7 @@ public class SimulationView {
     Button homeButton = new Button("Home");
     Button darkButton = new Button("Dark/Light");
     public Button simulationButton = new Button("Start simulating!");
-    static boolean isDark;
+    public static boolean isDark;
 
     ToggleGroup option = new ToggleGroup();
     public ToggleButton gramPerLiter = new ToggleButton("g/L");
