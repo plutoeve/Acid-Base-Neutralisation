@@ -1,5 +1,3 @@
-# acid-base neutralisation
-a project for school
+# Acid-Base Neutralisation
 
-When in Doubt, Delete Out file
-Hello there im desperate
+
